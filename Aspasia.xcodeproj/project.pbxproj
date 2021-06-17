@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32AEDE75EC8850EEAD08AF6A /* Pods_Aspasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */; };
 		D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A16264C0113007D85E8 /* AppDelegate.swift */; };
 		D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A18264C0113007D85E8 /* SceneDelegate.swift */; };
 		D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A1A264C0113007D85E8 /* SplashViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aspasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.debug.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.debug.xcconfig"; sourceTree = "<group>"; };
+		8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.release.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.release.xcconfig"; sourceTree = "<group>"; };
 		D3774A13264C0113007D85E8 /* Aspasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aspasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3774A16264C0113007D85E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3774A18264C0113007D85E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32AEDE75EC8850EEAD08AF6A /* Pods_Aspasia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24125B530D39FA4AA5094E6F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */,
+				8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		32AC7BDF40CB9728EA502E40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3774A0A264C0113007D85E8 = {
 			isa = PBXGroup;
 			children = (
 				D3774A15264C0113007D85E8 /* Aspasia */,
 				D3774A14264C0113007D85E8 /* Products */,
+				24125B530D39FA4AA5094E6F /* Pods */,
+				32AC7BDF40CB9728EA502E40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3774A2A264C0114007D85E8 /* Build configuration list for PBXNativeTarget "Aspasia" */;
 			buildPhases = (
+				8D45014205D4BE89DD065DB7 /* [CP] Check Pods Manifest.lock */,
 				D3774A0F264C0113007D85E8 /* Sources */,
 				D3774A10264C0113007D85E8 /* Frameworks */,
 				D3774A11264C0113007D85E8 /* Resources */,
+				725A15371845B9203938C134 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		725A15371845B9203938C134 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aspasia/Pods-Aspasia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aspasia/Pods-Aspasia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aspasia/Pods-Aspasia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D45014205D4BE89DD065DB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aspasia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3774A0F264C0113007D85E8 /* Sources */ = {
@@ -275,6 +344,7 @@
 		};
 		D3774A2B264C0114007D85E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +364,7 @@
 		};
 		D3774A2C264C0114007D85E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

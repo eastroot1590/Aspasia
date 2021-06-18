@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3774A1F264C0113007D85E8 /* Aspasia.xcdatamodeld */; };
 		D3774A23264C0114007D85E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3774A22264C0114007D85E8 /* Assets.xcassets */; };
 		D3774A26264C0114007D85E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3774A24264C0114007D85E8 /* LaunchScreen.storyboard */; };
+		D3962CFF267CBF0E0008A325 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962CFE267CBF0E0008A325 /* HomeViewController.swift */; };
+		D3962D03267CBFCC0008A325 /* Stackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D02267CBFCC0008A325 /* Stackable.swift */; };
+		D3962D05267CC1660008A325 /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D04267CC1660008A325 /* VStackView.swift */; };
+		D3962D07267CCD0A0008A325 /* VStackScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D06267CCD0A0008A325 /* VStackScroll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		D3774A22264C0114007D85E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3774A25264C0114007D85E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3774A27264C0114007D85E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3962CFE267CBF0E0008A325 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D3962D02267CBFCC0008A325 /* Stackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stackable.swift; sourceTree = "<group>"; };
+		D3962D04267CC1660008A325 /* VStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
+		D3962D06267CCD0A0008A325 /* VStackScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackScroll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +56,6 @@
 				84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */,
 				8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +88,8 @@
 		D3774A15264C0113007D85E8 /* Aspasia */ = {
 			isa = PBXGroup;
 			children = (
+				D3962D00267CBF330008A325 /* CustomView */,
+				D3962CFD267CBEF90008A325 /* ViewController */,
 				D3774A16264C0113007D85E8 /* AppDelegate.swift */,
 				D3774A18264C0113007D85E8 /* SceneDelegate.swift */,
 				D3774A1A264C0113007D85E8 /* SplashViewController.swift */,
@@ -90,6 +99,32 @@
 				D3774A1F264C0113007D85E8 /* Aspasia.xcdatamodeld */,
 			);
 			path = Aspasia;
+			sourceTree = "<group>";
+		};
+		D3962CFD267CBEF90008A325 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D3962CFE267CBF0E0008A325 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D3962D00267CBF330008A325 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				D3962D01267CBF700008A325 /* StackView */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		D3962D01267CBF700008A325 /* StackView */ = {
+			isa = PBXGroup;
+			children = (
+				D3962D02267CBFCC0008A325 /* Stackable.swift */,
+				D3962D04267CC1660008A325 /* VStackView.swift */,
+				D3962D06267CCD0A0008A325 /* VStackScroll.swift */,
+			);
+			path = StackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,10 +240,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3962D07267CCD0A0008A325 /* VStackScroll.swift in Sources */,
+				D3962CFF267CBF0E0008A325 /* HomeViewController.swift in Sources */,
 				D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */,
 				D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */,
+				D3962D05267CC1660008A325 /* VStackView.swift in Sources */,
 				D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
+				D3962D03267CBFCC0008A325 /* Stackable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@
 		D3774A23264C0114007D85E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3774A22264C0114007D85E8 /* Assets.xcassets */; };
 		D3774A26264C0114007D85E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3774A24264C0114007D85E8 /* LaunchScreen.storyboard */; };
 		D3962CFF267CBF0E0008A325 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962CFE267CBF0E0008A325 /* HomeViewController.swift */; };
-		D3962D03267CBFCC0008A325 /* Stackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D02267CBFCC0008A325 /* Stackable.swift */; };
 		D3962D05267CC1660008A325 /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D04267CC1660008A325 /* VStackView.swift */; };
 		D3962D07267CCD0A0008A325 /* VStackScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962D06267CCD0A0008A325 /* VStackScroll.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		D3774A25264C0114007D85E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3774A27264C0114007D85E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3962CFE267CBF0E0008A325 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D3962D02267CBFCC0008A325 /* Stackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stackable.swift; sourceTree = "<group>"; };
 		D3962D04267CC1660008A325 /* VStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
 		D3962D06267CCD0A0008A325 /* VStackScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackScroll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +118,6 @@
 		D3962D01267CBF700008A325 /* StackView */ = {
 			isa = PBXGroup;
 			children = (
-				D3962D02267CBFCC0008A325 /* Stackable.swift */,
 				D3962D04267CC1660008A325 /* VStackView.swift */,
 				D3962D06267CCD0A0008A325 /* VStackScroll.swift */,
 			);
@@ -247,7 +244,6 @@
 				D3962D05267CC1660008A325 /* VStackView.swift in Sources */,
 				D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
-				D3962D03267CBFCC0008A325 /* Stackable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

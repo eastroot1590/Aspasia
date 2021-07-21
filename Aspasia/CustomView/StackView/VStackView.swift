@@ -7,64 +7,42 @@
 
 import UIKit
 
-class VStackView: UIView, Stackable {
-    var lastStack: UIView?
-    
-    func push(_ stack: UIView, spacing: CGFloat) {
-        attachToLastStack(stack, spacing: spacing)
-        
-        if stack.frame.width > 0 {
-            horizontalLayoutToAlignment(stack)
-        } else {
-            horizontalLayoutToFill(stack)
-        }
-        
-        extentStackLayout(stack)
+class VStackView: UIView {
+    /// StackView에 추가할 수 있는 Node
+    struct StackNode {
+        /// 앞 화면과 공백
+        var view: UIView
+        var spacing: CGFloat
     }
     
-    private func attachToLastStack(_ stack: UIView, spacing: CGFloat) {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stack)
-        var verticalConstraint = [stack.topAnchor.constraint(equalTo: lastStack?.bottomAnchor ?? topAnchor, constant: spacing)]
-        
-        if stack.frame.height > 0 {
-            verticalConstraint.append(stack.heightAnchor.constraint(equalToConstant: stack.frame.height))
-        }
-        
-        NSLayoutConstraint.activate(verticalConstraint)
-        
-        lastStack = stack
-    }
+    var alignment: UIView.ContentMode = .center
     
-    private func horizontalLayoutToAlignment(_ stack: UIView) {
-        var horizontalConstraints = [stack.widthAnchor.constraint(equalToConstant: stack.frame.width)]
-
-        switch contentMode {
-        case .center:
-            horizontalConstraints.append(stack.centerXAnchor.constraint(equalTo: centerXAnchor))
-        case .left:
-            horizontalConstraints.append(stack.leadingAnchor.constraint(equalTo: leadingAnchor))
-        case .right:
-            horizontalConstraints.append(stack.trailingAnchor.constraint(equalTo: trailingAnchor))
+    var stack: [StackNode] = []
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        var height: CGFloat = 0
+        
+        for node in stack {
+            let nodeHeight = node.view.frame.height
             
-        default:
-            break
+            node.view.frame.origin = CGPoint(x: 0, y: height + node.spacing)
+            node.view.frame.size = CGSize(width: frame.width, height: nodeHeight)
+            
+            height += nodeHeight + node.spacing
         }
+    }
+    
+    func push(_ child: UIView, spacing: CGFloat) {
+        let oldHeight = frame.height
         
-        NSLayoutConstraint.activate(horizontalConstraints)
-    }
-    
-    private func horizontalLayoutToFill(_ stack: UIView) {
-        NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-    }
-    
-    private func extentStackLayout(_ stack: UIView) {
-        if let bottom = constraints.first(where: { $0.firstAttribute == .bottom }) {
-            NSLayoutConstraint.deactivate([bottom])
-        }
-        NSLayoutConstraint.activate([bottomAnchor.constraint(equalTo: stack.bottomAnchor)])
+        let stackNode = StackNode(view: child, spacing: spacing)
+        stack.append(stackNode)
+        
+        addSubview(child)
+        
+        let newHeight = oldHeight + spacing + stackNode.view.frame.height
+        frame.size = CGSize(width: frame.width, height: newHeight)
     }
 }

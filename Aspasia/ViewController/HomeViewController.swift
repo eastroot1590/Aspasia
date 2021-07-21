@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         let scroll = VStackScroll()
-        scroll.backgroundColor = .yellow
         scroll.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scroll)
         NSLayoutConstraint.activate([
@@ -25,9 +24,9 @@ class HomeViewController: UIViewController {
             scroll.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        for _ in 0..<20 {
+        for i in 0..<20 {
             let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 50)))
-            view.backgroundColor = .green
+            view.backgroundColor = UIColor(white: CGFloat(i) / 20, alpha: 1)
             
             scroll.push(view, spacing: 10)
         }

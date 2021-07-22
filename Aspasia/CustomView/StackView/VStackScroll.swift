@@ -10,6 +10,15 @@ import UIKit
 class VStackScroll: UIScrollView {
     var contentView: VStackView!
     
+    var alignment: UIView.ContentMode {
+        get {
+            self.contentView.alignment
+        }
+        set {
+            self.contentView.alignment = newValue
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,8 +33,12 @@ class VStackScroll: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func push(_ stack: UIView, spacing: CGFloat) {
-        contentView.push(stack, spacing: spacing)
+    /// VStackScroll에 view를 추가한다.
+    /// - parameter stack : 추가할 view
+    /// - parameter spacing : 앞서 추가한 view와의 공백
+    /// - parameter offset : 수직축에 대한 offset
+    func push(_ stack: UIView, spacing: CGFloat = 0, offset: CGFloat = 0) {
+        contentView.push(stack, spacing: spacing, offset: offset)
         contentView.frame.size = CGSize(width: frame.width, height: contentView.frame.height)
         contentSize = contentView.frame.size
     }

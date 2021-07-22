@@ -10,7 +10,6 @@ import UIKit
 class VStackView: UIView {
     /// StackView에 추가할 수 있는 Node
     struct StackNode {
-        /// 앞 화면과 공백
         var view: UIView
         var spacing: CGFloat
     }
@@ -27,34 +26,48 @@ class VStackView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        var height: CGFloat = 0
-//
-//        for node in stack {
-//            let nodeHeight = node.view.frame.height
-//
-//            node.view.frame.origin = CGPoint(x: 0, y: height + node.spacing)
-//            node.view.frame.size = CGSize(width: frame.width, height: nodeHeight)
-//
-//            height += nodeHeight + node.spacing
-//        }
-//    }
-    
-    func push(_ child: UIView, spacing: CGFloat) {
-        // child frame
-        child.frame.origin = CGPoint(x: child.frame.width > 0 ? frame.width / 2 - child.frame.width / 2 : 0, y: frame.height)
-        child.frame.size = CGSize(width: child.frame.width > 0 ? child.frame.width : frame.width, height: child.frame.height)
-        
-        // stack frame
-        frame.size = CGSize(width: frame.width, height: frame.height + spacing + child.frame.height)
-        
+    /// VStackView에 view를 추가한다.
+    /// - parameter stack : 추가할 view
+    /// - parameter spacing : 앞서 추가한 view와의 공백
+    /// - parameter offset : 수직축에 대한 offset
+    func push(_ child: UIView, spacing: CGFloat = 0, offset: CGFloat = 0) {
         // add
-        addSubview(child)
+        if child.frame.width > 0 {
+            addSubviewWithAlignmentLayout(child, spacing, offset)
+        } else {
+            addSubviewWithFillLayout(child, spacing, offset)
+        }
         
         // append stack
+        frame.size = CGSize(width: frame.width, height: frame.height + spacing + child.frame.height)
+        
         let stackNode = StackNode(view: child, spacing: spacing)
         stack.append(stackNode)
+    }
+    
+    private func addSubviewWithAlignmentLayout(_ child: UIView, _ spacing: CGFloat, _ offset: CGFloat) {
+        // default center
+        var origin = CGPoint(x: frame.width / 2 - child.frame.width / 2, y: frame.height + spacing)
+        
+        switch alignment {
+        case .left:
+            origin.x = 0 + offset
+            
+        case .right:
+            origin.x = frame.width - child.frame.width + offset
+            
+        default:
+            break
+        }
+        
+        child.frame.origin = origin
+        
+        addSubview(child)
+    }
+    
+    private func addSubviewWithFillLayout(_ child: UIView, _ spacing: CGFloat, _ offset: CGFloat) {
+        child.frame = CGRect(x: offset, y: frame.height + spacing, width: frame.width, height: child.frame.height)
+        
+        addSubview(child)
     }
 }

@@ -16,16 +16,15 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         scrollView = VStackScroll(frame: view.frame)
+        scrollView.alignment = .left
         view.addSubview(scrollView)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         for i in 0..<20 {
-            let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 50)))
+            let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 50)))
             view.backgroundColor = UIColor(white: CGFloat(i) / 20, alpha: 1)
             
-            scrollView.push(view, spacing: 10)
+            scrollView.push(view, spacing: 10, offset: CGFloat(i * 10))
         }
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(changeFrame)))
     }
 }

@@ -20,6 +20,10 @@ class HomeViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        let banner = UIView()
+        banner.backgroundColor = .systemRed
+        scrollView.setBanner(banner, height: 400)
+        
         for i in 0..<20 {
             let view = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 50)))
             view.backgroundColor = UIColor(white: CGFloat(i) / 20, alpha: 1)

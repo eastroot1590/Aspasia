@@ -8,11 +8,15 @@
 import UIKit
 
 class VStackScroll: UIScrollView {
-    let contentView: VStackView = VStackView()
+    var contentView: VStackView!
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
+        showsHorizontalScrollIndicator = false
+        
+        contentView = VStackView(frame: frame)
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
     }
     
@@ -20,20 +24,9 @@ class VStackScroll: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame.origin = .zero
-        contentView.frame.size = CGSize(width: frame.width, height: contentView.frame.height)
-
-        contentSize = contentView.frame.size
-    }
-    
     func push(_ stack: UIView, spacing: CGFloat) {
         contentView.push(stack, spacing: spacing)
-        
-//        contentView.layoutIfNeeded()
+        contentView.frame.size = CGSize(width: frame.width, height: contentView.frame.height)
         contentSize = contentView.frame.size
-        print("contentSize = \(contentSize)")
     }
 }

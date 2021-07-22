@@ -19,30 +19,42 @@ class VStackView: UIView {
     
     var stack: [StackNode] = []
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        var height: CGFloat = 0
-        
-        for node in stack {
-            let nodeHeight = node.view.frame.height
-            
-            node.view.frame.origin = CGPoint(x: 0, y: height + node.spacing)
-            node.view.frame.size = CGSize(width: frame.width, height: nodeHeight)
-            
-            height += nodeHeight + node.spacing
-        }
+    override init(frame: CGRect) {
+        super.init(frame: CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 0)))
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        var height: CGFloat = 0
+//
+//        for node in stack {
+//            let nodeHeight = node.view.frame.height
+//
+//            node.view.frame.origin = CGPoint(x: 0, y: height + node.spacing)
+//            node.view.frame.size = CGSize(width: frame.width, height: nodeHeight)
+//
+//            height += nodeHeight + node.spacing
+//        }
+//    }
+    
     func push(_ child: UIView, spacing: CGFloat) {
-        let oldHeight = frame.height
+        // child frame
+        child.frame.origin = CGPoint(x: child.frame.width > 0 ? frame.width / 2 - child.frame.width / 2 : 0, y: frame.height)
+        child.frame.size = CGSize(width: child.frame.width > 0 ? child.frame.width : frame.width, height: child.frame.height)
         
-        let stackNode = StackNode(view: child, spacing: spacing)
-        stack.append(stackNode)
+        // stack frame
+        frame.size = CGSize(width: frame.width, height: frame.height + spacing + child.frame.height)
         
+        // add
         addSubview(child)
         
-        let newHeight = oldHeight + spacing + stackNode.view.frame.height
-        frame.size = CGSize(width: frame.width, height: newHeight)
+        // append stack
+        let stackNode = StackNode(view: child, spacing: spacing)
+        stack.append(stackNode)
     }
 }

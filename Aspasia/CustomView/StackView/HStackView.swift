@@ -1,19 +1,19 @@
 //
-//  VStackView.swift
+//  HStackView.swift
 //  Aspasia
 //
-//  Created by 이동근 on 2021/06/18.
+//  Created by 이동근 on 2021/07/26.
 //
 
 import UIKit
 
-class VStackView: UIView {
+class HStackView: UIView {
     var alignment: UIView.ContentMode = .center
     
     var stack: [Stackable] = []
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 0)))
+        super.init(frame: CGRect(origin: frame.origin, size: CGSize(width: 0, height: frame.height)))
     }
     
     required init?(coder: NSCoder) {
@@ -23,19 +23,19 @@ class VStackView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        var height: CGFloat = 0
+        var width: CGFloat = 0
         
         for node in stack {
             if node.view.frame.width > 0 {
-                alignmentLayout(node, minY: height)
+                alignmentLayout(node, minX: width)
             } else {
-                fillLayout(node, minY: height)
+                fillLayout(node, minX: width)
             }
             
-            height += node.spacing + node.view.frame.height
+            width += node.spacing + node.view.frame.width
         }
         
-        frame.size = CGSize(width: frame.size.width, height: height)
+        frame.size = CGSize(width: width, height: frame.height)
     }
     
     /// VStackView에 view를 추가한다.
@@ -43,21 +43,18 @@ class VStackView: UIView {
     /// - parameter spacing : 앞서 추가한 view와의 공백
     /// - parameter offset : 수직축에 대한 offset
     func push(_ child: UIView, spacing: CGFloat = 0, offset: CGFloat = 0) {
-        child.sizeToFit()
-        
-        let node = Stackable(view: child, spacing: spacing, offset: offset)
-        
         // layout
-        if child.frame.width > 0 {
-            alignmentLayout(node, minY: frame.height)
-        } else {
-            fillLayout(node, minY: frame.height)
-        }
+//        if child.frame.width > 0 {
+//            alignmentLayout(child, spacing, offset, minX: frame.height)
+//        } else {
+//            fillLayout(child, spacing, offset, minX: frame.height)
+//        }
         
         // add
         addSubview(child)
         
         // append stack
+        let node = Stackable(view: child, spacing: spacing, offset: offset)
         stack.append(node)
     }
     
@@ -65,7 +62,7 @@ class VStackView: UIView {
         var playing: Int = 0
         
         for node in stack {
-            node.view.transform = CGAffineTransform(translationX: 0, y: -20)
+            node.view.transform = CGAffineTransform(translationX: -20, y: 0)
             node.view.alpha = 0
             
             UIView.animate(withDuration: 0.1, delay: 0.05 * Double(playing), animations: {
@@ -77,25 +74,26 @@ class VStackView: UIView {
         }
     }
     
-    private func alignmentLayout(_ node: Stackable, minY: CGFloat) {
+    private func alignmentLayout(_ node: Stackable, minX: CGFloat) {
         // default center
-        var origin = CGPoint(x: frame.width / 2 - node.view.frame.width / 2, y: minY + node.spacing)
+        var origin = CGPoint(x: minX + node.spacing, y: frame.height / 2 - node.view.frame.height / 2)
         
         switch alignment {
-        case .left:
-            origin.x = node.offset
+        case .top:
+            origin.y = node.offset
             
-        case .right:
-            origin.x = frame.width - node.view.frame.width + node.offset
+        case .bottom:
+            origin.y = frame.height - node.view.frame.height + node.offset
             
         default:
             break
         }
         
         node.view.frame.origin = origin
+        
     }
     
-    private func fillLayout(_ node: Stackable, minY: CGFloat) {
-        node.view.frame = CGRect(x: node.offset, y: minY + node.spacing, width: frame.width, height: node.view.frame.height)
+    private func fillLayout(_ node: Stackable, minX: CGFloat) {
+        node.view.frame = CGRect(x: minX + node.spacing, y: node.offset, width: node.view.frame.width, height: frame.height)
     }
 }

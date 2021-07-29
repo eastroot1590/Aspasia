@@ -26,7 +26,6 @@ class VStackScroll: UIScrollView {
         super.init(frame: frame)
         
         showsHorizontalScrollIndicator = false
-        delegate = self
         
         contentView = VStackView(frame: frame)
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -37,15 +36,29 @@ class VStackScroll: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let offset = min(contentOffset.y, 0)
+        let bannerHeightMax = bannerHeight - offset
+        
+        bannerView?.frame.origin = CGPoint(x: 0, y: offset)
+        
+        if frame.height > bannerHeightMax {
+            bannerView?.frame.size = CGSize(width: frame.width, height: bannerHeightMax)
+        } else {
+            bannerView?.frame.size = frame.size
+        }
+        
+        resizeScrollBound()
+    }
+    
     /// VStackScroll에 view를 추가한다.
     /// - parameter stack : 추가할 view
     /// - parameter spacing : 앞서 추가한 view와의 공백
     /// - parameter offset : 수직축에 대한 offset
     func push(_ stack: UIView, spacing: CGFloat = 0, offset: CGFloat = 0) {
         contentView.push(stack, spacing: spacing, offset: offset)
-//        contentView.frame.size = CGSize(width: frame.width, height: contentView.frame.height)
-        
-        resizeScrollBound()
     }
     
     func setBanner(_ banner: UIView, height: CGFloat) {
@@ -59,20 +72,9 @@ class VStackScroll: UIScrollView {
         banner.frame.size = CGSize(width: frame.width, height: height)
         
         contentView.frame.origin = CGPoint(x: 0, y: height)
-        
-        resizeScrollBound()
     }
     
     private func resizeScrollBound() {
         contentSize = CGSize(width: contentView.frame.width, height: bannerHeight + contentView.frame.height)
-    }
-}
-
-extension VStackScroll: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = min(scrollView.contentOffset.y, 0)
-        
-        bannerView?.frame.origin = CGPoint(x: 0, y: offset)
-        bannerView?.frame.size = CGSize(width: frame.width, height: bannerHeight - offset)
     }
 }

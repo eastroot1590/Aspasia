@@ -10,6 +10,7 @@
 		32AEDE75EC8850EEAD08AF6A /* Pods_Aspasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */; };
 		D369732726B68D4D00CCCEBC /* SelectExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732626B68D4D00CCCEBC /* SelectExerciseViewController.swift */; };
 		D369732A26B6917B00CCCEBC /* ExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732926B6917B00CCCEBC /* ExerciseCollectionViewCell.swift */; };
+		D369732C26B6BFAF00CCCEBC /* ExerciseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732B26B6BFAF00CCCEBC /* ExerciseSectionHeader.swift */; };
 		D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A16264C0113007D85E8 /* AppDelegate.swift */; };
 		D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A18264C0113007D85E8 /* SceneDelegate.swift */; };
 		D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A1A264C0113007D85E8 /* SplashViewController.swift */; };
@@ -31,6 +32,7 @@
 		8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.release.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.release.xcconfig"; sourceTree = "<group>"; };
 		D369732626B68D4D00CCCEBC /* SelectExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExerciseViewController.swift; sourceTree = "<group>"; };
 		D369732926B6917B00CCCEBC /* ExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
+		D369732B26B6BFAF00CCCEBC /* ExerciseSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSectionHeader.swift; sourceTree = "<group>"; };
 		D3774A13264C0113007D85E8 /* Aspasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aspasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3774A16264C0113007D85E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3774A18264C0113007D85E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				D369732626B68D4D00CCCEBC /* SelectExerciseViewController.swift */,
 				D369732926B6917B00CCCEBC /* ExerciseCollectionViewCell.swift */,
+				D369732B26B6BFAF00CCCEBC /* ExerciseSectionHeader.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				D3962D05267CC1660008A325 /* VStackView.swift in Sources */,
 				D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */,
 				D3B4B3B326AED7080000147F /* HStackView.swift in Sources */,
+				D369732C26B6BFAF00CCCEBC /* ExerciseSectionHeader.swift in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

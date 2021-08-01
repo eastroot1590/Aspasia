@@ -1,5 +1,5 @@
 //
-//  ExerciseSectionHeader.swift
+//  WorkoutSectionHeader.swift
 //  Aspasia
 //
 //  Created by 이동근 on 2021/08/01.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ExerciseSectionHeader: UICollectionReusableView {
-    static let identifier: String = "ExerciseSection"
+class WorkoutSectionHeader: UICollectionReusableView {
+    static let identifier: String = "WorkoutSectionHeader"
     
     var title: String? {
         didSet {
@@ -27,6 +27,7 @@ class ExerciseSectionHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
         NSLayoutConstraint.activate([

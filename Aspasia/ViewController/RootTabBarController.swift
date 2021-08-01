@@ -14,13 +14,13 @@ class RootTabBarController: UITabBarController {
         
         tabBar.tintColor = .black
         
-        let home = HomeNavigationController(rootViewController: ProfileViewController())
-        initializeTabAppearance(home, title: "프로필")
+        let profile = ProfileViewController()
+        initializeTabAppearance(profile, title: "프로필")
         
-        let other = SelectExerciseViewController()
+        let other = WorkoutCollectionViewController()
         initializeTabAppearance(other, title: "운동")
         
-        viewControllers = [home, other]
+        viewControllers = [profile, other]
         setViewControllers(viewControllers, animated: false)
     }
     

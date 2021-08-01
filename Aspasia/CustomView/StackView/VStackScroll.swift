@@ -28,7 +28,6 @@ class VStackScroll: UIScrollView {
         showsHorizontalScrollIndicator = false
         
         contentView = VStackView(frame: frame)
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
     }
     
@@ -39,18 +38,7 @@ class VStackScroll: UIScrollView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let offset = min(contentOffset.y, 0)
-        let bannerHeightMax = bannerHeight - offset
-        
-        bannerView?.frame.origin = CGPoint(x: 0, y: offset)
-        
-        if frame.height > bannerHeightMax {
-            bannerView?.frame.size = CGSize(width: frame.width, height: bannerHeightMax)
-        } else {
-            bannerView?.frame.size = frame.size
-        }
-        
-        resizeScrollBound()
+        layoutBanner()
     }
     
     /// VStackScroll에 view를 추가한다.
@@ -58,9 +46,14 @@ class VStackScroll: UIScrollView {
     /// - parameter spacing : 앞서 추가한 view와의 공백
     /// - parameter offset : 수직축에 대한 offset
     func push(_ stack: UIView, spacing: CGFloat = 0, offset: CGFloat = 0) {
+        // simply delegate push
         contentView.push(stack, spacing: spacing, offset: offset)
+        
+        // extent contentSize to fit banner + contentView
+        contentSize = CGSize(width: frame.width, height: bannerHeight + contentView.frame.height)
     }
     
+    /// StickyHeader 레이아웃을 가지는 배너를 추가한다.
     func setBanner(_ banner: UIView, height: CGFloat) {
         bannerView = banner
         bannerHeight = height
@@ -68,13 +61,28 @@ class VStackScroll: UIScrollView {
         addSubview(banner)
         
         // layout
-        banner.frame.origin = .zero
-        banner.frame.size = CGSize(width: frame.width, height: height)
+        layoutBanner()
         
+        // update contentView's position
         contentView.frame.origin = CGPoint(x: 0, y: height)
     }
     
-    private func resizeScrollBound() {
-        contentSize = CGSize(width: contentView.frame.width, height: bannerHeight + contentView.frame.height)
+    /// 배너 레이아웃
+    /// StickyHeader layout.
+    private func layoutBanner() {
+        guard let banner = bannerView else {
+            return
+        }
+        
+        let offset = min(contentOffset.y, 0)
+        let bannerHeightMax = bannerHeight - offset
+        
+        banner.frame.origin = CGPoint(x: 0, y: offset)
+        
+        if frame.height > bannerHeightMax {
+            banner.frame.size = CGSize(width: frame.width, height: bannerHeightMax)
+        } else {
+            banner.frame.size = frame.size
+        }
     }
 }

@@ -12,30 +12,16 @@ class VStackView: UIView {
     
     var stack: [Stackable] = []
     
+    override var intrinsicContentSize: CGSize {
+        return frame.size
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: 0)))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        var height: CGFloat = 0
-        
-        for node in stack {
-            if node.view.frame.width > 0 {
-                alignmentLayout(node, minY: height)
-            } else {
-                fillLayout(node, minY: height)
-            }
-            
-            height += node.spacing + node.view.frame.height
-        }
-        
-        frame.size = CGSize(width: frame.size.width, height: height)
     }
     
     /// VStackView에 view를 추가한다.
@@ -59,8 +45,13 @@ class VStackView: UIView {
         
         // append stack
         stack.append(node)
+        
+        // extend frame to fit stack
+        let height = frame.height + spacing + child.frame.height
+        frame.size = CGSize(width: frame.width, height: height)
     }
     
+    /// 스택에 추가한 순서대로 등장 애니메이션을 재생한다.
     func playCascade() {
         var playing: Int = 0
         
@@ -77,6 +68,7 @@ class VStackView: UIView {
         }
     }
     
+    /// child 본인의 넓이와 높이에 맞게 정렬하는 레이아웃
     private func alignmentLayout(_ node: Stackable, minY: CGFloat) {
         // default center
         var origin = CGPoint(x: frame.width / 2 - node.view.frame.width / 2, y: minY + node.spacing)
@@ -95,6 +87,7 @@ class VStackView: UIView {
         node.view.frame.origin = origin
     }
     
+    /// child 본인의 높이를 가지며 좌우로 가득 차는 레이아웃
     private func fillLayout(_ node: Stackable, minY: CGFloat) {
         node.view.frame = CGRect(x: node.offset, y: minY + node.spacing, width: frame.width, height: node.view.frame.height)
     }

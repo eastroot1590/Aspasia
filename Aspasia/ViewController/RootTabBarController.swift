@@ -12,19 +12,20 @@ class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = HomeNavigationController(rootViewController: HomeViewController())
-        initializeTabAppearance(home, title: "Home")
+        tabBar.tintColor = .black
         
-        let other = UIViewController()
-        other.view.backgroundColor = .red
-        initializeTabAppearance(other, title: "Other")
+        let home = HomeNavigationController(rootViewController: ProfileViewController())
+        initializeTabAppearance(home, title: "프로필")
+        
+        let other = SelectExerciseViewController()
+        initializeTabAppearance(other, title: "운동")
         
         viewControllers = [home, other]
         setViewControllers(viewControllers, animated: false)
     }
     
     private func initializeTabAppearance(_ viewController: UIViewController, title: String) {
-//        viewController.tabBarItem = UITabBarItem(title: title, image: UIImage(named: "\(title)Tab"), selectedImage: UIImage(named: "\(title)Tab"))
+        viewController.tabBarItem = UITabBarItem(title: title, image: nil, selectedImage: nil)
         
         viewController.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .normal)
         viewController.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .selected)

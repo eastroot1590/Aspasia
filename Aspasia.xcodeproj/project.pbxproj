@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		32AEDE75EC8850EEAD08AF6A /* Pods_Aspasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */; };
-		D369732726B68D4D00CCCEBC /* WorkoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732626B68D4D00CCCEBC /* WorkoutCollectionViewController.swift */; };
-		D369732A26B6917B00CCCEBC /* WorkoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732926B6917B00CCCEBC /* WorkoutCollectionViewCell.swift */; };
-		D369732C26B6BFAF00CCCEBC /* WorkoutSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732B26B6BFAF00CCCEBC /* WorkoutSectionHeader.swift */; };
 		D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732E26B6D14B00CCCEBC /* Workout.swift */; };
-		D369733126B6D18900CCCEBC /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733026B6D18900CCCEBC /* WorkoutPart.swift */; };
-		D369733326B6D26600CCCEBC /* WorkoutCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733226B6D26600CCCEBC /* WorkoutCycle.swift */; };
-		D369733826B6D49600CCCEBC /* WorkoutGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733726B6D49600CCCEBC /* WorkoutGenerator.swift */; };
+		D369733326B6D26600CCCEBC /* WorkoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733226B6D26600CCCEBC /* WorkoutSet.swift */; };
+		D369733B26B96FF600CCCEBC /* WorkoutRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733A26B96FF600CCCEBC /* WorkoutRoutine.swift */; };
+		D369733D26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */; };
+		D369734426B977CA00CCCEBC /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734326B977CA00CCCEBC /* WorkoutType.swift */; };
+		D369734626BAB68200CCCEBC /* WorkoutSelectPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734526BAB68200CCCEBC /* WorkoutSelectPhase.swift */; };
+		D369734926BABC7600CCCEBC /* WorkoutTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */; };
+		D369734D26BABE1F00CCCEBC /* AspasiaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */; };
+		D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */; };
+		D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */; };
 		D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A16264C0113007D85E8 /* AppDelegate.swift */; };
 		D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A18264C0113007D85E8 /* SceneDelegate.swift */; };
 		D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A1A264C0113007D85E8 /* SplashViewController.swift */; };
@@ -27,20 +30,22 @@
 		D3B4B3B126AED6D50000147F /* Stackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4B3B026AED6D50000147F /* Stackable.swift */; };
 		D3B4B3B326AED7080000147F /* HStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4B3B226AED7080000147F /* HStackView.swift */; };
 		D3B4B3B526AEDC9E0000147F /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */; };
-		D3B4B3B726AEDD110000147F /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4B3B626AEDD110000147F /* HomeNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aspasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.debug.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.debug.xcconfig"; sourceTree = "<group>"; };
 		8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.release.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.release.xcconfig"; sourceTree = "<group>"; };
-		D369732626B68D4D00CCCEBC /* WorkoutCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewController.swift; sourceTree = "<group>"; };
-		D369732926B6917B00CCCEBC /* WorkoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCollectionViewCell.swift; sourceTree = "<group>"; };
-		D369732B26B6BFAF00CCCEBC /* WorkoutSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSectionHeader.swift; sourceTree = "<group>"; };
 		D369732E26B6D14B00CCCEBC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		D369733026B6D18900CCCEBC /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
-		D369733226B6D26600CCCEBC /* WorkoutCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCycle.swift; sourceTree = "<group>"; };
-		D369733726B6D49600CCCEBC /* WorkoutGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
+		D369733226B6D26600CCCEBC /* WorkoutSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSet.swift; sourceTree = "<group>"; };
+		D369733A26B96FF600CCCEBC /* WorkoutRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRoutine.swift; sourceTree = "<group>"; };
+		D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeSelectorViewController.swift; sourceTree = "<group>"; };
+		D369734326B977CA00CCCEBC /* WorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
+		D369734526BAB68200CCCEBC /* WorkoutSelectPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectPhase.swift; sourceTree = "<group>"; };
+		D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspasiaColor.swift; sourceTree = "<group>"; };
+		D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Aspasia.swift"; sourceTree = "<group>"; };
+		D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Aspasia.swift"; sourceTree = "<group>"; };
 		D3774A13264C0113007D85E8 /* Aspasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aspasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3774A16264C0113007D85E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3774A18264C0113007D85E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +60,6 @@
 		D3B4B3B026AED6D50000147F /* Stackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stackable.swift; sourceTree = "<group>"; };
 		D3B4B3B226AED7080000147F /* HStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStackView.swift; sourceTree = "<group>"; };
 		D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
-		D3B4B3B626AEDD110000147F /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +94,7 @@
 		D369732826B6915A00CCCEBC /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				D369732626B68D4D00CCCEBC /* WorkoutCollectionViewController.swift */,
-				D369732926B6917B00CCCEBC /* WorkoutCollectionViewCell.swift */,
-				D369732B26B6BFAF00CCCEBC /* WorkoutSectionHeader.swift */,
+				D369734A26BABD2800CCCEBC /* WorkoutType */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D369733426B6D36A00CCCEBC /* Workout */,
+				D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -108,19 +111,13 @@
 		D369733426B6D36A00CCCEBC /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				D369733026B6D18900CCCEBC /* WorkoutPart.swift */,
-				D369733226B6D26600CCCEBC /* WorkoutCycle.swift */,
 				D369732E26B6D14B00CCCEBC /* Workout.swift */,
+				D369733226B6D26600CCCEBC /* WorkoutSet.swift */,
+				D369733A26B96FF600CCCEBC /* WorkoutRoutine.swift */,
+				D369734326B977CA00CCCEBC /* WorkoutType.swift */,
+				D369734526BAB68200CCCEBC /* WorkoutSelectPhase.swift */,
 			);
 			path = Workout;
-			sourceTree = "<group>";
-		};
-		D369733526B6D46A00CCCEBC /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				D369733726B6D49600CCCEBC /* WorkoutGenerator.swift */,
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		D369733926B6D71800CCCEBC /* Profile */ = {
@@ -129,6 +126,39 @@
 				D3962CFE267CBF0E0008A325 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D369734A26BABD2800CCCEBC /* WorkoutType */ = {
+			isa = PBXGroup;
+			children = (
+				D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */,
+				D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */,
+			);
+			path = WorkoutType;
+			sourceTree = "<group>";
+		};
+		D369734E26BAC2C300CCCEBC /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		D369735126BAC84900CCCEBC /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D369735226BAC85600CCCEBC /* CoreGraphic */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		D369735226BAC85600CCCEBC /* CoreGraphic */ = {
+			isa = PBXGroup;
+			children = (
+				D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */,
+			);
+			path = CoreGraphic;
 			sourceTree = "<group>";
 		};
 		D3774A0A264C0113007D85E8 = {
@@ -152,9 +182,10 @@
 		D3774A15264C0113007D85E8 /* Aspasia */ = {
 			isa = PBXGroup;
 			children = (
+				D369735126BAC84900CCCEBC /* UIKit */,
+				D369734E26BAC2C300CCCEBC /* Foundation */,
 				D369732D26B6D13E00CCCEBC /* Data */,
-				D369733526B6D46A00CCCEBC /* Utility */,
-				D3962D00267CBF330008A325 /* CustomView */,
+				D3962D00267CBF330008A325 /* View */,
 				D3962CFD267CBEF90008A325 /* ViewController */,
 				D3774A16264C0113007D85E8 /* AppDelegate.swift */,
 				D3774A18264C0113007D85E8 /* SceneDelegate.swift */,
@@ -173,17 +204,16 @@
 				D369733926B6D71800CCCEBC /* Profile */,
 				D369732826B6915A00CCCEBC /* Workout */,
 				D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */,
-				D3B4B3B626AEDD110000147F /* HomeNavigationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		D3962D00267CBF330008A325 /* CustomView */ = {
+		D3962D00267CBF330008A325 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D3962D01267CBF700008A325 /* StackView */,
 			);
-			path = CustomView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		D3962D01267CBF700008A325 /* StackView */ = {
@@ -310,24 +340,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D369733326B6D26600CCCEBC /* WorkoutCycle.swift in Sources */,
+				D369733326B6D26600CCCEBC /* WorkoutSet.swift in Sources */,
+				D369734426B977CA00CCCEBC /* WorkoutType.swift in Sources */,
 				D3962D07267CCD0A0008A325 /* VStackScroll.swift in Sources */,
-				D369732A26B6917B00CCCEBC /* WorkoutCollectionViewCell.swift in Sources */,
+				D369734926BABC7600CCCEBC /* WorkoutTypeCollectionViewCell.swift in Sources */,
 				D3B4B3B526AEDC9E0000147F /* RootTabBarController.swift in Sources */,
 				D3962CFF267CBF0E0008A325 /* ProfileViewController.swift in Sources */,
 				D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */,
 				D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */,
-				D369733826B6D49600CCCEBC /* WorkoutGenerator.swift in Sources */,
-				D369732726B68D4D00CCCEBC /* WorkoutCollectionViewController.swift in Sources */,
-				D369733126B6D18900CCCEBC /* WorkoutPart.swift in Sources */,
+				D369734D26BABE1F00CCCEBC /* AspasiaColor.swift in Sources */,
+				D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */,
 				D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */,
-				D3B4B3B726AEDD110000147F /* HomeNavigationController.swift in Sources */,
 				D3B4B3B126AED6D50000147F /* Stackable.swift in Sources */,
 				D3962D05267CC1660008A325 /* VStackView.swift in Sources */,
+				D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */,
 				D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */,
 				D3B4B3B326AED7080000147F /* HStackView.swift in Sources */,
-				D369732C26B6BFAF00CCCEBC /* WorkoutSectionHeader.swift in Sources */,
+				D369733D26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift in Sources */,
+				D369733B26B96FF600CCCEBC /* WorkoutRoutine.swift in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
+				D369734626BAB68200CCCEBC /* WorkoutSelectPhase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

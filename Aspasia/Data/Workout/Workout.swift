@@ -10,10 +10,17 @@ import Foundation
 /// 운동 데이터
 struct Workout {
     /// 부위
-    let part: WorkoutPart
+    var part: String = ""
     
-    let title: String
-    let subtitle: String
+    /// 종목
+    var event: String = ""
     
-    var cycles: [WorkoutCycle]
+    /// 종목 상세 설명
+    var eventDetail: String = ""
+    
+    /// 목표
+    var goal: [WorkoutSet] = []
+    
+    /// 달성도
+    var achive: [WorkoutSet] = []
 }

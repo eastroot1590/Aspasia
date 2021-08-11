@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (5.4.3)
+  - StackERView (1.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.4)
+  - StackERView
 
 SPEC REPOS:
   trunk:
-    - Alamofire
+    - StackERView
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  StackERView: c494e3edde1039c7b0f74fa390182e6cd9da583a
 
-PODFILE CHECKSUM: 76e61b3359138f43b039be9c90adef3ffc5bbf51
+PODFILE CHECKSUM: 6a76e77972d2e70bcd686c7c5bae9f2a3a8d5d29
 
 COCOAPODS: 1.10.1

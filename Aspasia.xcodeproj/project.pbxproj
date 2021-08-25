@@ -11,11 +11,10 @@
 		D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732E26B6D14B00CCCEBC /* Workout.swift */; };
 		D369733326B6D26600CCCEBC /* WorkoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733226B6D26600CCCEBC /* WorkoutSet.swift */; };
 		D369733B26B96FF600CCCEBC /* WorkoutRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733A26B96FF600CCCEBC /* WorkoutRoutine.swift */; };
-		D369733D26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */; };
+		D369733D26B9715400CCCEBC /* WorkoutHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369733C26B9715400CCCEBC /* WorkoutHomeViewController.swift */; };
 		D369734426B977CA00CCCEBC /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734326B977CA00CCCEBC /* WorkoutType.swift */; };
 		D369734626BAB68200CCCEBC /* WorkoutSelectPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734526BAB68200CCCEBC /* WorkoutSelectPhase.swift */; };
-		D369734926BABC7600CCCEBC /* WorkoutTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */; };
-		D369734D26BABE1F00CCCEBC /* AspasiaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */; };
+		D369734926BABC7600CCCEBC /* WorkoutTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734826BABC7500CCCEBC /* WorkoutTypeCell.swift */; };
 		D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */; };
 		D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */; };
 		D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3774A16264C0113007D85E8 /* AppDelegate.swift */; };
@@ -25,6 +24,15 @@
 		D3774A23264C0114007D85E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3774A22264C0114007D85E8 /* Assets.xcassets */; };
 		D3774A26264C0114007D85E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3774A24264C0114007D85E8 /* LaunchScreen.storyboard */; };
 		D3962CFF267CBF0E0008A325 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3962CFE267CBF0E0008A325 /* ProfileViewController.swift */; };
+		D3AC3FFC26D5246600AA7D7C /* WorkoutTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FFB26D5246600AA7D7C /* WorkoutTypeViewController.swift */; };
+		D3AC3FFE26D5260400AA7D7C /* UIColor+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FFD26D5260400AA7D7C /* UIColor+Aspasia.swift */; };
+		D3AC400026D666B600AA7D7C /* WorkoutNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC3FFF26D666B600AA7D7C /* WorkoutNavigationController.swift */; };
+		D3AC400226D6677500AA7D7C /* UIView+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400126D6677500AA7D7C /* UIView+Aspasia.swift */; };
+		D3AC400626D66AA300AA7D7C /* ExpandAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400526D66AA300AA7D7C /* ExpandAnimator.swift */; };
+		D3AC400826D66BCA00AA7D7C /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400726D66BCA00AA7D7C /* Expandable.swift */; };
+		D3AC400A26D66CF000AA7D7C /* ExpandPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400926D66CF000AA7D7C /* ExpandPushAnimator.swift */; };
+		D3AC400C26D66D0400AA7D7C /* ExpandPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400B26D66D0400AA7D7C /* ExpandPopAnimator.swift */; };
+		D3AC400E26D66DCC00AA7D7C /* UIViewController+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AC400D26D66DCC00AA7D7C /* UIViewController+Aspasia.swift */; };
 		D3B4B3B526AEDC9E0000147F /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,11 +43,10 @@
 		D369732E26B6D14B00CCCEBC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D369733226B6D26600CCCEBC /* WorkoutSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSet.swift; sourceTree = "<group>"; };
 		D369733A26B96FF600CCCEBC /* WorkoutRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRoutine.swift; sourceTree = "<group>"; };
-		D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeSelectorViewController.swift; sourceTree = "<group>"; };
+		D369733C26B9715400CCCEBC /* WorkoutHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHomeViewController.swift; sourceTree = "<group>"; };
 		D369734326B977CA00CCCEBC /* WorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
 		D369734526BAB68200CCCEBC /* WorkoutSelectPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectPhase.swift; sourceTree = "<group>"; };
-		D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeCollectionViewCell.swift; sourceTree = "<group>"; };
-		D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspasiaColor.swift; sourceTree = "<group>"; };
+		D369734826BABC7500CCCEBC /* WorkoutTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeCell.swift; sourceTree = "<group>"; };
 		D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Aspasia.swift"; sourceTree = "<group>"; };
 		D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Aspasia.swift"; sourceTree = "<group>"; };
 		D3774A13264C0113007D85E8 /* Aspasia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aspasia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +58,15 @@
 		D3774A25264C0114007D85E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3774A27264C0114007D85E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3962CFE267CBF0E0008A325 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D3AC3FFB26D5246600AA7D7C /* WorkoutTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeViewController.swift; sourceTree = "<group>"; };
+		D3AC3FFD26D5260400AA7D7C /* UIColor+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Aspasia.swift"; sourceTree = "<group>"; };
+		D3AC3FFF26D666B600AA7D7C /* WorkoutNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNavigationController.swift; sourceTree = "<group>"; };
+		D3AC400126D6677500AA7D7C /* UIView+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Aspasia.swift"; sourceTree = "<group>"; };
+		D3AC400526D66AA300AA7D7C /* ExpandAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandAnimator.swift; sourceTree = "<group>"; };
+		D3AC400726D66BCA00AA7D7C /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		D3AC400926D66CF000AA7D7C /* ExpandPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandPushAnimator.swift; sourceTree = "<group>"; };
+		D3AC400B26D66D0400AA7D7C /* ExpandPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandPopAnimator.swift; sourceTree = "<group>"; };
+		D3AC400D26D66DCC00AA7D7C /* UIViewController+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Aspasia.swift"; sourceTree = "<group>"; };
 		D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				D369734A26BABD2800CCCEBC /* WorkoutType */,
+				D3AC3FFB26D5246600AA7D7C /* WorkoutTypeViewController.swift */,
+				D369733C26B9715400CCCEBC /* WorkoutHomeViewController.swift */,
+				D3AC3FFF26D666B600AA7D7C /* WorkoutNavigationController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -95,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				D369733426B6D36A00CCCEBC /* Workout */,
-				D369734C26BABE1F00CCCEBC /* AspasiaColor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -123,8 +141,7 @@
 		D369734A26BABD2800CCCEBC /* WorkoutType */ = {
 			isa = PBXGroup;
 			children = (
-				D369733C26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift */,
-				D369734826BABC7500CCCEBC /* WorkoutTypeCollectionViewCell.swift */,
+				D369734826BABC7500CCCEBC /* WorkoutTypeCell.swift */,
 			);
 			path = WorkoutType;
 			sourceTree = "<group>";
@@ -141,6 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				D369735226BAC85600CCCEBC /* CoreGraphic */,
+				D3AC3FFD26D5260400AA7D7C /* UIColor+Aspasia.swift */,
+				D3AC400126D6677500AA7D7C /* UIView+Aspasia.swift */,
+				D3AC400D26D66DCC00AA7D7C /* UIViewController+Aspasia.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -174,9 +194,10 @@
 		D3774A15264C0113007D85E8 /* Aspasia */ = {
 			isa = PBXGroup;
 			children = (
-				D369735126BAC84900CCCEBC /* UIKit */,
 				D369734E26BAC2C300CCCEBC /* Foundation */,
+				D369735126BAC84900CCCEBC /* UIKit */,
 				D369732D26B6D13E00CCCEBC /* Data */,
+				D3AC400326D66A8400AA7D7C /* Animation */,
 				D3962CFD267CBEF90008A325 /* ViewController */,
 				D3774A16264C0113007D85E8 /* AppDelegate.swift */,
 				D3774A18264C0113007D85E8 /* SceneDelegate.swift */,
@@ -197,6 +218,25 @@
 				D3B4B3B426AEDC9E0000147F /* RootTabBarController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D3AC400326D66A8400AA7D7C /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				D3AC400426D66A9200AA7D7C /* ExpandAnimator */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		D3AC400426D66A9200AA7D7C /* ExpandAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				D3AC400726D66BCA00AA7D7C /* Expandable.swift */,
+				D3AC400526D66AA300AA7D7C /* ExpandAnimator.swift */,
+				D3AC400926D66CF000AA7D7C /* ExpandPushAnimator.swift */,
+				D3AC400B26D66D0400AA7D7C /* ExpandPopAnimator.swift */,
+			);
+			path = ExpandAnimator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,20 +354,28 @@
 			files = (
 				D369733326B6D26600CCCEBC /* WorkoutSet.swift in Sources */,
 				D369734426B977CA00CCCEBC /* WorkoutType.swift in Sources */,
-				D369734926BABC7600CCCEBC /* WorkoutTypeCollectionViewCell.swift in Sources */,
+				D369734926BABC7600CCCEBC /* WorkoutTypeCell.swift in Sources */,
 				D3B4B3B526AEDC9E0000147F /* RootTabBarController.swift in Sources */,
 				D3962CFF267CBF0E0008A325 /* ProfileViewController.swift in Sources */,
+				D3AC400C26D66D0400AA7D7C /* ExpandPopAnimator.swift in Sources */,
 				D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */,
 				D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */,
-				D369734D26BABE1F00CCCEBC /* AspasiaColor.swift in Sources */,
 				D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */,
+				D3AC400A26D66CF000AA7D7C /* ExpandPushAnimator.swift in Sources */,
 				D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */,
 				D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */,
+				D3AC400626D66AA300AA7D7C /* ExpandAnimator.swift in Sources */,
 				D3774A21264C0113007D85E8 /* Aspasia.xcdatamodeld in Sources */,
-				D369733D26B9715400CCCEBC /* WorkoutTypeSelectorViewController.swift in Sources */,
+				D369733D26B9715400CCCEBC /* WorkoutHomeViewController.swift in Sources */,
 				D369733B26B96FF600CCCEBC /* WorkoutRoutine.swift in Sources */,
+				D3AC3FFE26D5260400AA7D7C /* UIColor+Aspasia.swift in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
+				D3AC3FFC26D5246600AA7D7C /* WorkoutTypeViewController.swift in Sources */,
+				D3AC400E26D66DCC00AA7D7C /* UIViewController+Aspasia.swift in Sources */,
+				D3AC400826D66BCA00AA7D7C /* Expandable.swift in Sources */,
 				D369734626BAB68200CCCEBC /* WorkoutSelectPhase.swift in Sources */,
+				D3AC400026D666B600AA7D7C /* WorkoutNavigationController.swift in Sources */,
+				D3AC400226D6677500AA7D7C /* UIView+Aspasia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

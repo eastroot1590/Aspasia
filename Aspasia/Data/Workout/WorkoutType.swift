@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 /// 운동 타입
 struct WorkoutType {
     let typeName: String
     
-    let colorCode: AspasiaColor
+    let colorCode: UIColor?
     
     let description: String?
 }

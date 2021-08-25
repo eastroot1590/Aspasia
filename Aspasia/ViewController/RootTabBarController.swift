@@ -17,7 +17,7 @@ class RootTabBarController: UITabBarController {
         let profile = ProfileViewController()
         initializeTabAppearance(profile, title: "프로필")
         
-        let workout = WorkoutTypeSelectorViewController()
+        let workout = WorkoutNavigationController(rootViewController: WorkoutHomeViewController())
         initializeTabAppearance(workout, title: "운동")
         
         viewControllers = [profile, workout]

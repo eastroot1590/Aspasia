@@ -1,69 +1,79 @@
 //
-//  WorkoutBuilderViewController.swift
+//  WorkoutHomeViewController.swift
 //  Aspasia
 //
-//  Created by 이동근 on 2021/08/03.
+//  Created by 이동근 on 2021/10/20.
 //
 
 import UIKit
 
 class WorkoutHomeViewController: UIViewController {
-    let cellIdentifier: String = "workoutType"
     
-    let workoutTypes: [WorkoutType] = [
-        WorkoutType(typeName: "유산소", colorCode: UIColor(code: "0x4396f3"), description: nil),
-        WorkoutType(typeName: "무산소", colorCode: UIColor(code: "0xd12727"), description: nil)
+    var catalogs: [Catalog] = [
+        Catalog(category: .todayWorkout, title: "오늘의 운동", workouts: [
+            Workout(.anaerobic, part: "가슴", name: "밴치프레스", equipment: "바벨", goalSet: [
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10)
+            ]),
+            Workout(.anaerobic, part: "하체", name: "스쿼트", equipment: "바벨", goalSet: [
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10),
+                WorkoutSet(weight: 60, raps: 10)
+            ]),
+            Workout(.anaerobic, part: "가슴", name: "해머인클라인", equipment: "바벨", machine: "해머", goalSet: [
+                WorkoutSet(weight: 40, raps: 10),
+                WorkoutSet(weight: 40, raps: 10),
+                WorkoutSet(weight: 40, raps: 10),
+                WorkoutSet(weight: 40, raps: 10),
+                WorkoutSet(weight: 40, raps: 10)
+            ])
+        ]),
+        Catalog(category: .recommend, title: "추천 운동", workouts: [
+        
+        ]),
+        Catalog(category: .newWorkout, title: "새로 만들기", workouts: [])
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        title = "운동"
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .aspasiaPurple
         
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        let edge = (view.frame.width - 40) / 2
-        layout.itemSize = CGSize(width: edge, height: edge)
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
-        
-        let workoutCollection = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        workoutCollection.register(WorkoutTypeCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        workoutCollection.backgroundColor = .systemBackground
-        workoutCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        workoutCollection.delegate = self
-        workoutCollection.dataSource = self
-        view.addSubview(workoutCollection)
+        let catalogTable = UITableView(frame: view.frame, style: .plain)
+        catalogTable.backgroundColor = nil
+        catalogTable.register(WorkoutCatalogCell.self, forCellReuseIdentifier: "catalogCell")
+        catalogTable.dataSource = self
+        catalogTable.delegate = self
+        catalogTable.rowHeight = 250
+        catalogTable.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(catalogTable)
+        NSLayoutConstraint.activate([
+            catalogTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            catalogTable.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            catalogTable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            catalogTable.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
-extension WorkoutHomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        workoutTypes.count
+extension WorkoutHomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        catalogs.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! WorkoutTypeCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catalogCell", for: indexPath) as! WorkoutCatalogCell
         
-        cell.fatch(workoutTypes[indexPath.item])
+        cell.fatch(catalogs[indexPath.row])
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? WorkoutTypeCell,
-              let workoutNavigationController = navigationController as? WorkoutNavigationController else {
-            return
-        }
-        
-        let workoutTypeViewController = WorkoutTypeViewController(workoutTypes[indexPath.item])
-        let originFrame = selectedCell.convert(selectedCell.primeView.frame, to: workoutNavigationController.view)
-        
-        workoutTypeViewController.pushAnimator = ExpandPushAnimator(selectedCell: selectedCell, originFrame: originFrame)
-        workoutTypeViewController.popAnimator = ExpandPopAnimator(selectedCell: selectedCell, originFrame: originFrame)
-        
-        workoutNavigationController.pushInteractivePopableViewController(workoutTypeViewController, animated: true)
     }
 }

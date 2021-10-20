@@ -12,22 +12,22 @@ class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.tintColor = .black
+        tabBar.standardAppearance.configureWithOpaqueBackground()
         
-        let profile = ProfileViewController()
-        initializeTabAppearance(profile, title: "프로필")
+        let home = HomeNavigationController(rootViewController: HomeViewController())
+        appendTab(home, title: "홈", icon: UIImage(systemName: "house.fill"))
         
         let workout = WorkoutNavigationController(rootViewController: WorkoutHomeViewController())
-        initializeTabAppearance(workout, title: "운동")
+        appendTab(workout, title: "운동", icon: UIImage(systemName: "house.fill"))
         
-        viewControllers = [profile, workout]
+        viewControllers = [home, workout]
         setViewControllers(viewControllers, animated: false)
     }
     
-    private func initializeTabAppearance(_ viewController: UIViewController, title: String) {
-        viewController.tabBarItem = UITabBarItem(title: title, image: nil, selectedImage: nil)
+    private func appendTab(_ viewController: UIViewController, title: String? = nil, icon: UIImage? = nil) {
+        viewController.tabBarItem = UITabBarItem(title: title, image: icon, selectedImage: icon)
         
         viewController.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .normal)
-        viewController.tabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .selected)
+        viewController.tabBarItem.setTitleTextAttributes([.font: UIFont.boldSystemFont(ofSize: 12)], for: .selected)
     }
 }

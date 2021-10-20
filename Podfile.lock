@@ -1,5 +1,5 @@
 PODS:
-  - StackERView (1.0.1)
+  - StackERView (0.2.3)
 
 DEPENDENCIES:
   - StackERView
@@ -9,7 +9,7 @@ SPEC REPOS:
     - StackERView
 
 SPEC CHECKSUMS:
-  StackERView: c494e3edde1039c7b0f74fa390182e6cd9da583a
+  StackERView: 6abcb3e6dca251d46ea9ca5ddb9ec6e3e7eadca8
 
 PODFILE CHECKSUM: 6a76e77972d2e70bcd686c7c5bae9f2a3a8d5d29
 

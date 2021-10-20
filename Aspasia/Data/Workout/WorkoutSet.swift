@@ -2,13 +2,14 @@
 //  WorkoutSet.swift
 //  Aspasia
 //
-//  Created by 이동근 on 2021/08/01.
+//  Created by 이동근 on 2021/10/20.
 //
 
 import Foundation
 
-/// 운동 세트
-protocol WorkoutSet {
-    var load: Float { get set }
-    var lap: Int { get set }
+struct WorkoutSet {
+    /// 중량
+    let weight: Float
+    /// 목표 횟수
+    let raps: Int
 }

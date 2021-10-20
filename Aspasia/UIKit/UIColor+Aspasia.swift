@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    static let aspasiaPurple: UIColor = UIColor(red: 161/138, green: 138/255, blue: 205/255, alpha: 1)
+    static let aspasiaPurple: UIColor = UIColor(red: 161/255, green: 138/255, blue: 205/255, alpha: 1)
     
     var light: UIColor {
         var red: CGFloat = 0

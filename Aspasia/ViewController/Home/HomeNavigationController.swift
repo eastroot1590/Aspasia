@@ -1,13 +1,14 @@
 //
-//  WorkoutNavigationController.swift
+//  HomeNavigationController.swift
 //  Aspasia
 //
-//  Created by 이동근 on 2021/10/20.
+//  Created by 이동근 on 2021/10/08.
 //
 
 import UIKit
 
-class WorkoutNavigationController: UINavigationController {
+class HomeNavigationController: UINavigationController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -15,4 +16,8 @@ class WorkoutNavigationController: UINavigationController {
         navigationBar.standardAppearance.backgroundColor = .white
         navigationBar.standardAppearance.shadowColor = .clear
     }
+}
+
+extension HomeNavigationController: UINavigationControllerDelegate {
+    
 }

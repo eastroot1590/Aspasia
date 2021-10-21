@@ -24,4 +24,16 @@ struct Catalog {
     let title: String
     /// 운동
     let workouts: [Workout]
+    
+    init() {
+        self.category = .newWorkout
+        self.title = "새로 만들기"
+        self.workouts = []
+    }
+    
+    init(category: Category, title: String, workouts: [Workout]) {
+        self.category = category
+        self.title = title
+        self.workouts = workouts
+    }
 }

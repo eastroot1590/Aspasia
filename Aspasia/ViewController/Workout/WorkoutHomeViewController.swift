@@ -34,7 +34,13 @@ class WorkoutHomeViewController: UIViewController {
             ])
         ]),
         Catalog(category: .recommend, title: "추천 운동", workouts: [
-        
+            Workout(.anaerobic, part: "가슴", name: "케이블 플라이", machine: "케이블", goalSet: [
+                WorkoutSet(weight: 47, raps: 10),
+                WorkoutSet(weight: 47, raps: 10),
+                WorkoutSet(weight: 47, raps: 10),
+                WorkoutSet(weight: 47, raps: 10),
+                WorkoutSet(weight: 47, raps: 10)
+            ])
         ]),
         Catalog(category: .newWorkout, title: "새로 만들기", workouts: [])
     ]
@@ -51,7 +57,7 @@ class WorkoutHomeViewController: UIViewController {
         catalogTable.register(WorkoutCatalogCell.self, forCellReuseIdentifier: "catalogCell")
         catalogTable.dataSource = self
         catalogTable.delegate = self
-        catalogTable.rowHeight = 250
+        catalogTable.rowHeight = UITableView.automaticDimension
         catalogTable.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(catalogTable)
         NSLayoutConstraint.activate([

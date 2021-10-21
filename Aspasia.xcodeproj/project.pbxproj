@@ -37,6 +37,7 @@
 		D3BDC88F272040C0008239D7 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC88E272040C0008239D7 /* Catalog.swift */; };
 		D3BDC89127204DB4008239D7 /* WorkoutCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */; };
 		D3BDC8932720519C008239D7 /* WorkoutCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */; };
+		D3BDC89827219ED3008239D7 /* WorkoutPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC89727219ED3008239D7 /* WorkoutPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		D3BDC88E272040C0008239D7 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatalogCell.swift; sourceTree = "<group>"; };
 		D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardCell.swift; sourceTree = "<group>"; };
+		D3BDC89727219ED3008239D7 /* WorkoutPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,12 +242,21 @@
 		D3BDC88527202CE5008239D7 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				D3BDC89627219E96008239D7 /* WorkoutPlayer */,
 				D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */,
 				D3BDC88C27203AA5008239D7 /* WorkoutHomeViewController.swift */,
 				D3BDC88A27203A63008239D7 /* WorkoutNavigationController.swift */,
 				D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */,
 			);
 			path = Workout;
+			sourceTree = "<group>";
+		};
+		D3BDC89627219E96008239D7 /* WorkoutPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDC89727219ED3008239D7 /* WorkoutPlayerViewController.swift */,
+			);
+			path = WorkoutPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 				D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */,
 				D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */,
 				D3BDC88927203949008239D7 /* WorkoutSet.swift in Sources */,
+				D3BDC89827219ED3008239D7 /* WorkoutPlayerViewController.swift in Sources */,
 				D3AC400A26D66CF000AA7D7C /* ExpandPushAnimator.swift in Sources */,
 				D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */,
 				D3BDC88727203309008239D7 /* Routine.swift in Sources */,

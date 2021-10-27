@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		32AEDE75EC8850EEAD08AF6A /* Pods_Aspasia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */; };
+		D32EA3FC2729423100422191 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EA3FB2729423100422191 /* PageScrollView.swift */; };
+		D32EA3FF2729427600422191 /* AspasiaAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EA3FE2729427600422191 /* AspasiaAlertController.swift */; };
+		D32EA401272942B900422191 /* AspasiaAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EA400272942B900422191 /* AspasiaAlertAction.swift */; };
+		D32EA403272942F900422191 /* AlertPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EA402272942F900422191 /* AlertPresentationController.swift */; };
+		D32EA4052729431300422191 /* AlertTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32EA4042729431300422191 /* AlertTransitionAnimator.swift */; };
 		D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732E26B6D14B00CCCEBC /* Workout.swift */; };
 		D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */; };
 		D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */; };
@@ -44,6 +49,11 @@
 		1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aspasia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A3E1078BA4938B90AA76EA /* Pods-Aspasia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.debug.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.debug.xcconfig"; sourceTree = "<group>"; };
 		8C2BDF2B6D4041E6C474D456 /* Pods-Aspasia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aspasia.release.xcconfig"; path = "Target Support Files/Pods-Aspasia/Pods-Aspasia.release.xcconfig"; sourceTree = "<group>"; };
+		D32EA3FB2729423100422191 /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
+		D32EA3FE2729427600422191 /* AspasiaAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspasiaAlertController.swift; sourceTree = "<group>"; };
+		D32EA400272942B900422191 /* AspasiaAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspasiaAlertAction.swift; sourceTree = "<group>"; };
+		D32EA402272942F900422191 /* AlertPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentationController.swift; sourceTree = "<group>"; };
+		D32EA4042729431300422191 /* AlertTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTransitionAnimator.swift; sourceTree = "<group>"; };
 		D369732E26B6D14B00CCCEBC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Aspasia.swift"; sourceTree = "<group>"; };
 		D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Aspasia.swift"; sourceTree = "<group>"; };
@@ -105,6 +115,34 @@
 				1F9B5DAC6C7BBAA2F633285E /* Pods_Aspasia.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D32EA3F92729421300422191 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D32EA3FD2729424C00422191 /* AspasiaAlertController */,
+				D32EA3FA2729422000422191 /* PageScrollView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D32EA3FA2729422000422191 /* PageScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				D32EA3FB2729423100422191 /* PageScrollView.swift */,
+			);
+			path = PageScrollView;
+			sourceTree = "<group>";
+		};
+		D32EA3FD2729424C00422191 /* AspasiaAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				D32EA3FE2729427600422191 /* AspasiaAlertController.swift */,
+				D32EA400272942B900422191 /* AspasiaAlertAction.swift */,
+				D32EA402272942F900422191 /* AlertPresentationController.swift */,
+				D32EA4042729431300422191 /* AlertTransitionAnimator.swift */,
+			);
+			path = AspasiaAlertController;
 			sourceTree = "<group>";
 		};
 		D369732D26B6D13E00CCCEBC /* Data */ = {
@@ -180,6 +218,7 @@
 				D369732D26B6D13E00CCCEBC /* Data */,
 				D3AC400326D66A8400AA7D7C /* Animation */,
 				D3962CFD267CBEF90008A325 /* ViewController */,
+				D32EA3F92729421300422191 /* Components */,
 				D3774A16264C0113007D85E8 /* AppDelegate.swift */,
 				D3774A18264C0113007D85E8 /* SceneDelegate.swift */,
 				D3774A1A264C0113007D85E8 /* SplashViewController.swift */,
@@ -378,6 +417,7 @@
 				D3AC400C26D66D0400AA7D7C /* ExpandPopAnimator.swift in Sources */,
 				D3774A1B264C0113007D85E8 /* SplashViewController.swift in Sources */,
 				D3A156EA2710403300CDDCA6 /* HomeViewController.swift in Sources */,
+				D32EA3FC2729423100422191 /* PageScrollView.swift in Sources */,
 				D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */,
 				D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */,
 				D3BDC88927203949008239D7 /* WorkoutSet.swift in Sources */,
@@ -394,11 +434,15 @@
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
 				D3BDC87C27105E5B008239D7 /* HomeChartView.swift in Sources */,
 				D3BDC89127204DB4008239D7 /* WorkoutCatalogCell.swift in Sources */,
+				D32EA3FF2729427600422191 /* AspasiaAlertController.swift in Sources */,
 				D3AC400E26D66DCC00AA7D7C /* UIViewController+Aspasia.swift in Sources */,
 				D3AC400826D66BCA00AA7D7C /* Expandable.swift in Sources */,
 				D3A156ED2710446C00CDDCA6 /* ProfileView.swift in Sources */,
 				D3BDC88D27203AA5008239D7 /* WorkoutHomeViewController.swift in Sources */,
+				D32EA403272942F900422191 /* AlertPresentationController.swift in Sources */,
+				D32EA4052729431300422191 /* AlertTransitionAnimator.swift in Sources */,
 				D3BDC87E271854C7008239D7 /* UIImage+Aspasia.swift in Sources */,
+				D32EA401272942B900422191 /* AspasiaAlertAction.swift in Sources */,
 				D3AC400226D6677500AA7D7C /* UIView+Aspasia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

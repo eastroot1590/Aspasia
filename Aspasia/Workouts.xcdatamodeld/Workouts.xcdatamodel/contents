@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RoutineEntity" representedClassName="RoutineEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="workouts" attributeType="Transformable" customClassName="[WorkoutEntity]"/>
+    </entity>
+    <entity name="WorkoutEntity" representedClassName="WorkoutEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="achiveSet" attributeType="Transformable" customClassName="[WorkoutSetEntity]"/>
+        <attribute name="category" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="equipment" optional="YES" attributeType="String"/>
+        <attribute name="goalSet" attributeType="Transformable" customClassName="[WorkoutSetEntity]"/>
+        <attribute name="machine" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="part" attributeType="String"/>
+    </entity>
+    <entity name="WorkoutSetEntity" representedClassName="WorkoutSetEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="raps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="WorkoutEntity" positionX="-28.5234375" positionY="-131.87890625" width="128" height="148"/>
+        <element name="WorkoutSetEntity" positionX="-90" positionY="72" width="128" height="59"/>
+        <element name="RoutineEntity" positionX="-18" positionY="27" width="128" height="44"/>
+    </elements>
+</model>

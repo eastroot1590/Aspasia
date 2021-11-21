@@ -15,27 +15,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         title = "홈"
-        view.backgroundColor = .white
         
-        let scroll = VStackERScrollView(frame: view.frame)
-        scroll.ignoreFirstSpacing = true
-        scroll.stackAlignment = .fill
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scroll)
-        NSLayoutConstraint.activate([
-            scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scroll.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scroll.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scroll.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
         
-        for _ in 0 ..< 10 {
-            let sampleChart = HomeChartView()
-            sampleChart.backgroundColor = .systemBackground
-            scroll.push(sampleChart, spacing: 30)
-        }
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.aspasiaLabel]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.aspasiaLabel]
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touch)))
+        view.backgroundColor = .black
     }
     
     @objc func touch() {

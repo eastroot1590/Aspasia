@@ -7,24 +7,24 @@
 
 import UIKit
 
+/// 운동 카드
 class WorkoutCardCell: UICollectionViewCell {
+    
     let iconImage: UIImageView = UIImageView()
-    
     let titleLabel: UILabel = UILabel()
-    
     let rapsLabel: UILabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.cornerRadius = 15
-        layer.cornerCurve = .continuous
-        
-        backgroundColor = .aspasiaPurple
+        contentView.backgroundColor = .aspasiaPurple
+        contentView.layer.cornerRadius = 12
+        contentView.layer.cornerCurve = .circular
+        contentView.layer.masksToBounds = true
         
         iconImage.layer.cornerRadius = 40
         iconImage.layer.masksToBounds = true
-        iconImage.backgroundColor = .lightGray
+        iconImage.backgroundColor = .systemGray6
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(iconImage)
         NSLayoutConstraint.activate([
@@ -34,7 +34,7 @@ class WorkoutCardCell: UICollectionViewCell {
             iconImage.heightAnchor.constraint(equalToConstant: 80),
         ])
         
-        titleLabel.textColor = .black
+        titleLabel.textColor = .aspasiaLabel
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
@@ -43,7 +43,7 @@ class WorkoutCardCell: UICollectionViewCell {
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
         
-        rapsLabel.textColor = .black
+        rapsLabel.textColor = .aspasiaLabelLight
         rapsLabel.font = .systemFont(ofSize: 12)
         rapsLabel.alpha = 0.8
         rapsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -72,4 +72,5 @@ class WorkoutCardCell: UICollectionViewCell {
         let workoutPlayerViewController = WorkoutPlayerViewController()
         workoutNavigationController.pushViewController(workoutPlayerViewController, animated: true)
     }
+    
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    
     /// 최상위 UITabBarController
     /// 최상위 ViewController가 TabBarController라면 한 단계 더 탐색한다.
     var rootTapBarController: UITabBarController? {
@@ -30,4 +31,5 @@ extension UIView {
             return window.rootViewController as? UINavigationController
         }
     }
+    
 }

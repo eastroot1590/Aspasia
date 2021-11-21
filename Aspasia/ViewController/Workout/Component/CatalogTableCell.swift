@@ -7,21 +7,24 @@
 
 import UIKit
 
-class WorkoutCatalogCell: UITableViewCell {
+/// 운동 모음을 스크롤로 표현할 수 있는 view
+class CatalogTableCell: UITableViewCell {
     
-    var workouts: [Workout] = []
+    private var workouts: [Workout] = []
     
-    let titleLabel: UILabel = UILabel()
-    var workoutCollectionView: UICollectionView!
+    private let titleLabel: UILabel = UILabel()
+    private let workoutHCollectionView = WorkoutHCollectionView()
     
-    var cellAnimationForCurrentSession: UIViewPropertyAnimator?
+    private var cellAnimationForCurrentSession: UIViewPropertyAnimator?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = .black
+        
         selectionStyle = .none
         
+        titleLabel.textColor = .aspasiaLabel
         titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
@@ -30,24 +33,15 @@ class WorkoutCatalogCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
         ])
         
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 20, right: 10)
-        
-        workoutCollectionView = UICollectionView(frame: contentView.frame, collectionViewLayout: flowLayout)
-        workoutCollectionView.register(WorkoutCardCell.self, forCellWithReuseIdentifier: "workoutCardCell")
-        workoutCollectionView.dataSource = self
-        workoutCollectionView.delegate = self
-        workoutCollectionView.allowsSelection = true
-        workoutCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(workoutCollectionView)
+        workoutHCollectionView.dataSource = self
+        workoutHCollectionView.delegate = self
+        workoutHCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(workoutHCollectionView)
         NSLayoutConstraint.activate([
-            workoutCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            workoutCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            workoutCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            workoutCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            workoutCollectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 230)
+            workoutHCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            workoutHCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            workoutHCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            workoutHCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     
@@ -59,23 +53,35 @@ class WorkoutCatalogCell: UITableViewCell {
         workouts = data.workouts
         titleLabel.text = data.title
         
-        workoutCollectionView.reloadData()
+        workoutHCollectionView.reloadData()
     }
 }
 
-extension WorkoutCatalogCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+// MARK: UICollectionViewDataSource
+extension CatalogTableCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        workouts.count
+        return max(workouts.count, 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard workouts.count > 0 else {
+            let emptyWorkoutCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyWorkoutCell", for: indexPath) as! EmptyWorkoutCell
+            
+            return emptyWorkoutCell
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "workoutCardCell", for: indexPath) as! WorkoutCardCell
         
         cell.fatch(workouts[indexPath.item])
         
         return cell
     }
+    
+}
+
+// MARK: UICollectionViewDelegate
+extension CatalogTableCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! WorkoutCardCell
@@ -99,13 +105,33 @@ extension WorkoutCatalogCell: UICollectionViewDataSource, UICollectionViewDelega
         }).startAnimation()
     }
     
+}
+
+// MARK: UICollectionViewDelegateFlowLayout
+extension CatalogTableCell: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
             return .zero
         }
         
         let height = collectionView.frame.height - flowLayout.sectionInset.top - flowLayout.sectionInset.bottom
+        let width = height / 1.58
         
-        return CGSize(width: height * 0.7, height: height)
+        return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return .zero
+        }
+        
+        if workouts.count == 1 {
+            let left = (collectionView.frame.width - flowLayout.itemSize.width) / 2
+            return UIEdgeInsets(top: 10, left: left, bottom: 20, right: left)
+        } else {
+            return flowLayout.sectionInset
+        }
+    }
+    
 }

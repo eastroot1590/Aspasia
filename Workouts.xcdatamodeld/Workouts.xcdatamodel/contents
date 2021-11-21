@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RoutineEntity" representedClassName="RoutineEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WorkoutEntity"/>
+    </entity>
+    <entity name="WorkoutEntity" representedClassName="WorkoutEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="equipment" optional="YES" attributeType="String"/>
+        <attribute name="machine" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="part" attributeType="String"/>
+        <relationship name="achiveSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutSetEntity"/>
+        <relationship name="goalSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutSetEntity"/>
+    </entity>
+    <entity name="WorkoutSetEntity" representedClassName="WorkoutSetEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="raps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="RoutineEntity" positionX="-9" positionY="36" width="128" height="44"/>
+        <element name="WorkoutEntity" positionX="156.60546875" positionY="-146.6171875" width="128" height="134"/>
+        <element name="WorkoutSetEntity" positionX="349.515625" positionY="-326.6015625" width="128" height="59"/>
+    </elements>
+</model>

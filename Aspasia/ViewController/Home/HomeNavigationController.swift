@@ -13,8 +13,28 @@ class HomeNavigationController: UINavigationController {
         super.viewDidLoad()
 
         navigationBar.prefersLargeTitles = true
-        navigationBar.standardAppearance.backgroundColor = .white
-        navigationBar.standardAppearance.shadowColor = .clear
+        
+        let standard = UINavigationBarAppearance()
+        standard.configureWithOpaqueBackground()
+        standard.backgroundColor = .black
+        standard.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.aspasiaLabelThick
+        ]
+        standard.titleTextAttributes = [
+            .foregroundColor: UIColor.aspasiaLabelThick
+        ]
+        navigationBar.standardAppearance = standard
+        
+        let scrollEdge = UINavigationBarAppearance()
+        scrollEdge.configureWithOpaqueBackground()
+        scrollEdge.backgroundColor = .black
+        scrollEdge.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.aspasiaLabelThick
+        ]
+        scrollEdge.titleTextAttributes = [
+            .foregroundColor: UIColor.aspasiaLabelThick
+        ]
+        navigationBar.scrollEdgeAppearance = scrollEdge
     }
 }
 

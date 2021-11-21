@@ -13,6 +13,12 @@ class RootTabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.standardAppearance.configureWithOpaqueBackground()
+        tabBar.standardAppearance.backgroundColor = .black
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance?.configureWithOpaqueBackground()
+            tabBar.scrollEdgeAppearance?.backgroundColor = .black
+        }
+        tabBar.tintColor = .aspasiaPurple
         
         let home = HomeNavigationController(rootViewController: HomeViewController())
         appendTab(home, title: "홈", icon: UIImage(systemName: "house.fill"))

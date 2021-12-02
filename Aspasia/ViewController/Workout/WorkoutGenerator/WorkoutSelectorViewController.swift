@@ -54,7 +54,6 @@ class WorkoutSelectorViewController: UIViewController {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
         layout.sectionInset = UIEdgeInsets(top: 10, left: 24, bottom: 10, right: 24)
-//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.alwaysBounceHorizontal = true
@@ -98,16 +97,36 @@ extension WorkoutSelectorViewController: UICollectionViewDataSource {
     
 }
 
-extension WorkoutSelectorViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension WorkoutSelectorViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return
+        }
+        
+        UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: {
+            cell.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        }).startAnimation()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return
+        }
+        
+        UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut, animations: {
+            cell.transform = .identity
+        }).startAnimation()
+    }
+    
+}
+
+extension WorkoutSelectorViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let edge = (collectionView.frame.height - view.safeAreaInsets.bottom)
         
         return CGSize(width: 80, height: edge)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 10, bottom: view.safeAreaInsets.bottom, right: 10)
-//    }
     
 }

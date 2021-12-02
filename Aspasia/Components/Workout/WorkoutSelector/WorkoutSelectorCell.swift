@@ -46,12 +46,6 @@ class WorkoutSelectorCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
-//        
-//        return size
-//    }
-    
     func fatchCategory(_ category: WorkoutCategory) {
         titleLabel.text = category.description
         iconImage.backgroundColor = category.color

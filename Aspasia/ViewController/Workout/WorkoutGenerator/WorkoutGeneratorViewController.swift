@@ -15,8 +15,10 @@ class WorkoutGeneratorViewController: UIViewController {
     let templateWorkoutView = TemplateWorkoutView()
     /// selector가 들어갈 자리
     let selectorContainer = UIView()
+    var selectorTopConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    var selectorAnimation: UIViewPropertyAnimator?
     
-    var currentSelector: WorkoutSelectorViewController?
+    var currentSelector: WorkoutSelectorViewController = WorkoutSelectorViewController(.category)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +33,18 @@ class WorkoutGeneratorViewController: UIViewController {
             selectorContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             selectorContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             selectorContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            selectorContainer.heightAnchor.constraint(equalToConstant: 250)
+            selectorContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
         ])
+        
+        addChild(currentSelector)
+        selectorContainer.addSubview(currentSelector.view)
+        currentSelector.view.frame = selectorContainer.frame
         
         templateWorkoutView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(templateWorkoutView)
+        selectorTopConstraint = templateWorkoutView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         NSLayoutConstraint.activate([
-            templateWorkoutView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            selectorTopConstraint,
             templateWorkoutView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             templateWorkoutView.bottomAnchor.constraint(equalTo: selectorContainer.topAnchor, constant: -20),
             templateWorkoutView.widthAnchor.constraint(equalTo: templateWorkoutView.heightAnchor, multiplier: 0.63)
@@ -51,56 +58,7 @@ class WorkoutGeneratorViewController: UIViewController {
     }
     
     private func showSelector(_ phase: SelectionPhase) {
-        
-        guard currentSelector == nil else {
-            hideSelector()
-            return
-        }
-        
-        let selectorController = WorkoutSelectorViewController(.category)
-        addChild(selectorController)
-        selectorContainer.addSubview(selectorController.view)
-        selectorController.view.frame = selectorContainer.frame
-        selectorController.view.frame.origin = CGPoint(x: 0, y: selectorContainer.frame.height)
-        
-        // animation
-        let targetY: CGFloat = 0
-        let animation = UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut, animations: {
-            selectorController.view.frame.origin = CGPoint(x: 0, y: targetY)
-        })
-        animation.addCompletion { location in
-            switch location {
-            case .end:
-                self.currentSelector = selectorController
-                
-            default:
-                break
-            }
-        }
-        animation.startAnimation()
-    }
-    
-    private func hideSelector() {
-        guard let selector = currentSelector else {
-            return
-        }
-        
-        let targetY = view.frame.maxY
-        
-        let animation = UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut, animations: {
-            selector.view.frame.origin = CGPoint(x: 0, y: targetY)
-        })
-        animation.addCompletion { location in
-            switch location {
-            case .end:
-                selector.removeFromParent()
-                self.currentSelector = nil
-                
-            default:
-                break
-            }
-        }
-        animation.startAnimation()
+//        selectorAnimation?.startAnimation()
     }
 
 }

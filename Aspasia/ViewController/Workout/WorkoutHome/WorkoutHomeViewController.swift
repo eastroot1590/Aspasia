@@ -27,7 +27,8 @@ class WorkoutHomeViewController: UIViewController {
         
         let catalogTable = UITableView(frame: view.frame, style: .plain)
         catalogTable.backgroundColor = .black
-        catalogTable.separatorStyle = .none
+//        catalogTable.separatorStyle = .none
+        catalogTable.rowHeight = UITableView.automaticDimension
         catalogTable.dataSource = self
         catalogTable.delegate = self
         catalogTable.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +41,7 @@ class WorkoutHomeViewController: UIViewController {
         ])
         
         // register
-        catalogTable.register(CatalogTableCell.self, forCellReuseIdentifier: "catalogCell")
+        catalogTable.register(WorkoutCatalogCell.self, forCellReuseIdentifier: "catalogCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,17 +51,32 @@ class WorkoutHomeViewController: UIViewController {
     
 }
 
-extension WorkoutHomeViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: UITableViewDataSource
+extension WorkoutHomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         catalogs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "catalogCell", for: indexPath) as! CatalogTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catalogCell", for: indexPath) as! WorkoutCatalogCell
         
         cell.fatch(catalogs[indexPath.row])
+        cell.delegate = self
         
         return cell
+    }
+}
+
+// MARK: UITableViewDelegate
+extension WorkoutHomeViewController: UITableViewDelegate {
+    
+}
+
+// MARK: WorkoutCatalogCellDelegate
+extension WorkoutHomeViewController: WorkoutCatalogCellDelegate {
+    
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

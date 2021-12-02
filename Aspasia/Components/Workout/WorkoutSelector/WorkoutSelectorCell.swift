@@ -10,21 +10,21 @@ import UIKit
 /// 운동 선택 cell
 class WorkoutSelectorCell: UICollectionViewCell {
     
-    let cell = UIView()
+    let iconImage = UIImageView()
     let titleLabel: UILabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        cell.layer.cornerRadius = 20
-        cell.layer.cornerCurve = .continuous
-        cell.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(cell)
+        iconImage.layer.cornerRadius = 20
+        iconImage.layer.cornerCurve = .continuous
+        iconImage.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(iconImage)
         NSLayoutConstraint.activate([
-            cell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            cell.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            iconImage.topAnchor.constraint(equalTo: contentView.topAnchor),
+            iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            iconImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            iconImage.heightAnchor.constraint(equalTo: iconImage.widthAnchor)
         ])
         
         titleLabel.text = "내용"
@@ -32,11 +32,13 @@ class WorkoutSelectorCell: UICollectionViewCell {
         titleLabel.textAlignment = .center
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        cell.addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -10)
+            titleLabel.topAnchor.constraint(equalTo: iconImage.bottomAnchor, constant: 10),
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor)
         ])
     }
     
@@ -44,9 +46,15 @@ class WorkoutSelectorCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+//        let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+//        
+//        return size
+//    }
+    
     func fatchCategory(_ category: WorkoutCategory) {
         titleLabel.text = category.description
-        cell.backgroundColor = category.color
+        iconImage.backgroundColor = category.color
     }
     
 }

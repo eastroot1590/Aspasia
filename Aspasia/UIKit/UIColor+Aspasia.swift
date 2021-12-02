@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIColor {
-    static let aspasiaPurple: UIColor = UIColor(red: 161/255, green: 138/255, blue: 205/255, alpha: 1)
+    
+    static let aspasiaPurple: UIColor = UIColor(red: 101/255, green: 68/255, blue: 152/255, alpha: 1)
+    static let aspasiaPurpleDark: UIColor = UIColor(red: 111/255, green: 68/255, blue: 112/255, alpha: 1)
     
     static let aspasiaLabelThick: UIColor = UIColor(white: 1, alpha: 1)
     static let aspasiaLabel: UIColor = UIColor(white: 1, alpha: 0.87)
@@ -37,14 +39,14 @@ extension UIColor {
         return UIColor(red: max(red - 0.1, 0), green: max(green - 0.1, 0), blue: max(blue - 0.1, 0), alpha: alpha)
     }
     
-    convenience init?(hex: String, alpha: CGFloat = 1) {
-        guard let colorCode = hex.colorCode,
+    convenience init(hex: String, alpha: CGFloat = 1) {
+        if let colorCode = hex.colorCode,
               let red = CGFloat(colorCode.substring(from: 0, by: 2), radix: 16),
               let green = CGFloat(colorCode.substring(from: 2, by: 2), radix: 16),
-              let blue = CGFloat(colorCode.substring(from: 4, by: 2), radix: 16) else {
-            return nil
+              let blue = CGFloat(colorCode.substring(from: 4, by: 2), radix: 16) {
+            self.init(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
+        } else {
+            self.init(red: 1, green: 1, blue: 1, alpha: alpha)
         }
-
-        self.init(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }
 }

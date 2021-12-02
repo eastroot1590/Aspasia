@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// 운동 생성 phase
 enum SelectionPhase: String {
@@ -46,6 +47,21 @@ enum SelectionPhase: String {
             return "장비"
         case .machine:
             return "머신"
+        }
+    }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .category:
+            return UIColor(hex: "0x253d7c")
+        case .part:
+            return UIColor(hex: "0x792a33")
+        case .name:
+            return UIColor(hex: "0xbeb2aa")
+        case .equipment:
+            return UIColor(hex: "0x616f44")
+        case .machine:
+            return UIColor(hex: "0x654f7b")
         }
     }
 }

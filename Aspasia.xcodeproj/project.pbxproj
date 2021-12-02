@@ -17,10 +17,8 @@
 		D33989AF2743D9D500F1D3C5 /* WorkoutCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33989AE2743D9D500F1D3C5 /* WorkoutCategory.swift */; };
 		D33989B12743DA0D00F1D3C5 /* WorkoutPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33989B02743DA0D00F1D3C5 /* WorkoutPart.swift */; };
 		D33989B32743DC9B00F1D3C5 /* TemplateWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33989B22743DC9B00F1D3C5 /* TemplateWorkout.swift */; };
-		D33989B62743E31C00F1D3C5 /* EmptyWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33989B52743E31C00F1D3C5 /* EmptyWorkoutCell.swift */; };
 		D340D3FD27369E13002A16DE /* Workouts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D340D3FB27369E13002A16DE /* Workouts.xcdatamodeld */; };
 		D340D460273BF39F002A16DE /* WorkoutGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340D45F273BF39F002A16DE /* WorkoutGeneratorViewController.swift */; };
-		D340D464273BF745002A16DE /* WorkoutHCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D340D463273BF745002A16DE /* WorkoutHCollectionView.swift */; };
 		D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369732E26B6D14B00CCCEBC /* Workout.swift */; };
 		D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */; };
 		D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */; };
@@ -47,7 +45,7 @@
 		D3BDC88B27203A63008239D7 /* WorkoutNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC88A27203A63008239D7 /* WorkoutNavigationController.swift */; };
 		D3BDC88D27203AA5008239D7 /* WorkoutHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC88C27203AA5008239D7 /* WorkoutHomeViewController.swift */; };
 		D3BDC88F272040C0008239D7 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC88E272040C0008239D7 /* Catalog.swift */; };
-		D3BDC89127204DB4008239D7 /* CatalogTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC89027204DB4008239D7 /* CatalogTableCell.swift */; };
+		D3BDC89127204DB4008239D7 /* WorkoutCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */; };
 		D3BDC8932720519C008239D7 /* WorkoutCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */; };
 		D3BDC89827219ED3008239D7 /* WorkoutPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDC89727219ED3008239D7 /* WorkoutPlayerViewController.swift */; };
 		D3F8056E2749043C00EC1FEB /* TemplateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F8056D2749043C00EC1FEB /* TemplateWorkoutView.swift */; };
@@ -69,10 +67,8 @@
 		D33989AE2743D9D500F1D3C5 /* WorkoutCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCategory.swift; sourceTree = "<group>"; };
 		D33989B02743DA0D00F1D3C5 /* WorkoutPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPart.swift; sourceTree = "<group>"; };
 		D33989B22743DC9B00F1D3C5 /* TemplateWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateWorkout.swift; sourceTree = "<group>"; };
-		D33989B52743E31C00F1D3C5 /* EmptyWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWorkoutCell.swift; sourceTree = "<group>"; };
 		D340D3FC27369E13002A16DE /* Workouts.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = Workouts.xcdatamodel; sourceTree = "<group>"; };
 		D340D45F273BF39F002A16DE /* WorkoutGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutGeneratorViewController.swift; sourceTree = "<group>"; };
-		D340D463273BF745002A16DE /* WorkoutHCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHCollectionView.swift; sourceTree = "<group>"; };
 		D369732E26B6D14B00CCCEBC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		D369734F26BAC2D000CCCEBC /* String+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Aspasia.swift"; sourceTree = "<group>"; };
 		D369735326BAC86000CCCEBC /* CGFloat+Aspasia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Aspasia.swift"; sourceTree = "<group>"; };
@@ -101,7 +97,7 @@
 		D3BDC88A27203A63008239D7 /* WorkoutNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNavigationController.swift; sourceTree = "<group>"; };
 		D3BDC88C27203AA5008239D7 /* WorkoutHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHomeViewController.swift; sourceTree = "<group>"; };
 		D3BDC88E272040C0008239D7 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
-		D3BDC89027204DB4008239D7 /* CatalogTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTableCell.swift; sourceTree = "<group>"; };
+		D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatalogCell.swift; sourceTree = "<group>"; };
 		D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardCell.swift; sourceTree = "<group>"; };
 		D3BDC89727219ED3008239D7 /* WorkoutPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlayerViewController.swift; sourceTree = "<group>"; };
 		D3F8056D2749043C00EC1FEB /* TemplateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateWorkoutView.swift; sourceTree = "<group>"; };
@@ -182,9 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				D3F8057127491DC600EC1FEB /* WorkoutSelector */,
-				D340D463273BF745002A16DE /* WorkoutHCollectionView.swift */,
 				D3BDC8922720519B008239D7 /* WorkoutCardCell.swift */,
-				D33989B52743E31C00F1D3C5 /* EmptyWorkoutCell.swift */,
 				D3F8056D2749043C00EC1FEB /* TemplateWorkoutView.swift */,
 			);
 			path = Workout;
@@ -209,17 +203,10 @@
 		D340D461273BF5C7002A16DE /* WorkoutHome */ = {
 			isa = PBXGroup;
 			children = (
+				D3BDC89027204DB4008239D7 /* WorkoutCatalogCell.swift */,
 				D3BDC88C27203AA5008239D7 /* WorkoutHomeViewController.swift */,
 			);
 			path = WorkoutHome;
-			sourceTree = "<group>";
-		};
-		D340D462273BF72A002A16DE /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				D3BDC89027204DB4008239D7 /* CatalogTableCell.swift */,
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 		D369732D26B6D13E00CCCEBC /* Data */ = {
@@ -362,7 +349,6 @@
 		D3BDC88527202CE5008239D7 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				D340D462273BF72A002A16DE /* Component */,
 				D340D461273BF5C7002A16DE /* WorkoutHome */,
 				D340D45E273BF341002A16DE /* WorkoutGenerator */,
 				D3BDC89627219E96008239D7 /* WorkoutPlayer */,
@@ -512,12 +498,10 @@
 				D32EA3FC2729423100422191 /* PageScrollView.swift in Sources */,
 				D369732F26B6D14B00CCCEBC /* Workout.swift in Sources */,
 				D369735026BAC2D000CCCEBC /* String+Aspasia.swift in Sources */,
-				D33989B62743E31C00F1D3C5 /* EmptyWorkoutCell.swift in Sources */,
 				D33989AF2743D9D500F1D3C5 /* WorkoutCategory.swift in Sources */,
 				D3BDC88927203949008239D7 /* WorkoutSet.swift in Sources */,
 				D3BDC89827219ED3008239D7 /* WorkoutPlayerViewController.swift in Sources */,
 				D3AC400A26D66CF000AA7D7C /* ExpandPushAnimator.swift in Sources */,
-				D340D464273BF745002A16DE /* WorkoutHCollectionView.swift in Sources */,
 				D3774A17264C0113007D85E8 /* AppDelegate.swift in Sources */,
 				D3BDC88727203309008239D7 /* Routine.swift in Sources */,
 				D369735426BAC86000CCCEBC /* CGFloat+Aspasia.swift in Sources */,
@@ -531,7 +515,7 @@
 				D3AC3FFE26D5260400AA7D7C /* UIColor+Aspasia.swift in Sources */,
 				D3774A19264C0113007D85E8 /* SceneDelegate.swift in Sources */,
 				D3BDC87C27105E5B008239D7 /* HomeChartView.swift in Sources */,
-				D3BDC89127204DB4008239D7 /* CatalogTableCell.swift in Sources */,
+				D3BDC89127204DB4008239D7 /* WorkoutCatalogCell.swift in Sources */,
 				D32EA3FF2729427600422191 /* AspasiaAlertController.swift in Sources */,
 				D3AC400E26D66DCC00AA7D7C /* UIViewController+Aspasia.swift in Sources */,
 				D3AC400826D66BCA00AA7D7C /* Expandable.swift in Sources */,

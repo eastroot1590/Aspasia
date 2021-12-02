@@ -35,12 +35,13 @@ class WorkoutSelectorViewController: UIViewController {
         super.viewDidLoad()
         
         view.layer.cornerRadius = 20
+        view.layer.cornerCurve = .continuous
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        view.backgroundColor = .white
+        view.backgroundColor = phase.backgroundColor
 
         titleLabel.text = phase.description
-        titleLabel.textColor = .black
+        titleLabel.textColor = .aspasiaLabelThick
         titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
@@ -50,15 +51,16 @@ class WorkoutSelectorViewController: UIViewController {
         ])
         
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.sectionInset = .zero
-        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 24, bottom: 10, right: 24)
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.alwaysBounceHorizontal = true
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.alwaysBounceVertical = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
@@ -99,8 +101,13 @@ extension WorkoutSelectorViewController: UICollectionViewDataSource {
 extension WorkoutSelectorViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let edge = collectionView.frame.width / 4
+        let edge = (collectionView.frame.height - view.safeAreaInsets.bottom)
         
-        return CGSize(width: edge, height: edge)
+        return CGSize(width: 80, height: edge)
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 10, bottom: view.safeAreaInsets.bottom, right: 10)
+//    }
+    
 }

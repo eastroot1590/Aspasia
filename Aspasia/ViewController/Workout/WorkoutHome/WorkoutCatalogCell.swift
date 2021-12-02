@@ -7,13 +7,26 @@
 
 import UIKit
 
+protocol WorkoutCatalogCellDelegate: UIViewController {
+    func pushViewController(_ viewController: UIViewController, animated: Bool)
+}
+
 /// 운동 모음을 스크롤로 표현할 수 있는 view
-class CatalogTableCell: UITableViewCell {
+class WorkoutCatalogCell: UITableViewCell {
+    
+    weak var delegate: WorkoutCatalogCellDelegate?
     
     private var workouts: [Workout] = []
     
     private let titleLabel: UILabel = UILabel()
-    private let workoutHCollectionView = WorkoutHCollectionView()
+    
+    private lazy var workoutCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout)
+    }()
     
     private var cellAnimationForCurrentSession: UIViewPropertyAnimator?
     
@@ -33,16 +46,21 @@ class CatalogTableCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
         ])
         
-        workoutHCollectionView.dataSource = self
-        workoutHCollectionView.delegate = self
-        workoutHCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(workoutHCollectionView)
+        workoutCollectionView.backgroundColor = .clear
+        workoutCollectionView.dataSource = self
+        workoutCollectionView.delegate = self
+        workoutCollectionView.alwaysBounceHorizontal = true
+        workoutCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(workoutCollectionView)
         NSLayoutConstraint.activate([
-            workoutHCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            workoutHCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            workoutHCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            workoutHCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            workoutCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            workoutCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            workoutCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            workoutCollectionView.heightAnchor.constraint(equalToConstant: 200),
+            workoutCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
+        
+        workoutCollectionView.register(WorkoutCardCell.self, forCellWithReuseIdentifier: WorkoutCardCell.identifier)
     }
     
     required init?(coder: NSCoder) {
@@ -53,48 +71,50 @@ class CatalogTableCell: UITableViewCell {
         workouts = data.workouts
         titleLabel.text = data.title
         
-        workoutHCollectionView.reloadData()
+        workoutCollectionView.reloadData()
     }
 }
 
 // MARK: UICollectionViewDataSource
-extension CatalogTableCell: UICollectionViewDataSource {
+extension WorkoutCatalogCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return max(workouts.count, 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard workouts.count > 0 else {
-            let emptyWorkoutCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyWorkoutCell", for: indexPath) as! EmptyWorkoutCell
-            
-            return emptyWorkoutCell
+        let workoutCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: WorkoutCardCell.identifier, for: indexPath) as! WorkoutCardCell
+        
+        if workouts.count > indexPath.item {
+            workoutCardCell.fatch(workouts[indexPath.item])
+        } else {
+            workoutCardCell.fatch(nil)
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "workoutCardCell", for: indexPath) as! WorkoutCardCell
-        
-        cell.fatch(workouts[indexPath.item])
-        
-        return cell
+        return workoutCardCell
     }
     
 }
 
 // MARK: UICollectionViewDelegate
-extension CatalogTableCell: UICollectionViewDelegate {
+extension WorkoutCatalogCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! WorkoutCardCell
-        
-        UIViewPropertyAnimator(duration: 0.2, curve: .easeOut, animations: {
-            cell.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+
+        UIViewPropertyAnimator(duration: 0.1, curve: .easeOut, animations: {
+            cell.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
         }).startAnimation()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! WorkoutCardCell
-        
-        cell.setSelected()
+        if workouts.isEmpty {
+            let workoutGeneratorViewController = WorkoutGeneratorViewController()
+            delegate?.pushViewController(workoutGeneratorViewController, animated: true)
+        } else {
+            let workoutPlayerViewController = WorkoutPlayerViewController()
+            delegate?.pushViewController(workoutPlayerViewController, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
@@ -108,7 +128,7 @@ extension CatalogTableCell: UICollectionViewDelegate {
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
-extension CatalogTableCell: UICollectionViewDelegateFlowLayout {
+extension WorkoutCatalogCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
@@ -125,10 +145,13 @@ extension CatalogTableCell: UICollectionViewDelegateFlowLayout {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
             return .zero
         }
-        
-        if workouts.count == 1 {
-            let left = (collectionView.frame.width - flowLayout.itemSize.width) / 2
-            return UIEdgeInsets(top: 10, left: left, bottom: 20, right: left)
+
+        if workouts.count <= 1 {
+            let itemHeight = collectionView.frame.height - flowLayout.sectionInset.top - flowLayout.sectionInset.bottom
+            let itemWidth = itemHeight / 1.58
+            let horizontalHalfInset = (collectionView.frame.width - itemWidth) / 2
+            
+            return UIEdgeInsets(top: flowLayout.sectionInset.top, left: horizontalHalfInset, bottom: flowLayout.sectionInset.bottom, right: horizontalHalfInset)
         } else {
             return flowLayout.sectionInset
         }

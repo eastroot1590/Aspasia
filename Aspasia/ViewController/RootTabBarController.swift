@@ -12,11 +12,12 @@ class RootTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.standardAppearance.configureWithOpaqueBackground()
-        tabBar.standardAppearance.backgroundColor = .black
+        let tabbarAppearance = UITabBarAppearance()
+        tabbarAppearance.configureWithOpaqueBackground()
+        tabbarAppearance.backgroundColor = .black
+        tabBar.standardAppearance = tabbarAppearance
         if #available(iOS 15.0, *) {
-            tabBar.scrollEdgeAppearance?.configureWithOpaqueBackground()
-            tabBar.scrollEdgeAppearance?.backgroundColor = .black
+            tabBar.scrollEdgeAppearance = tabbarAppearance
         }
         tabBar.tintColor = .aspasiaPurple
         

@@ -10,6 +10,8 @@ import UIKit
 /// 운동 카드
 class WorkoutCardCell: UICollectionViewCell {
     
+    static let identifier: String = "workoutCard"
+    
     let iconImage: UIImageView = UIImageView()
     let titleLabel: UILabel = UILabel()
     let rapsLabel: UILabel = UILabel()
@@ -24,7 +26,7 @@ class WorkoutCardCell: UICollectionViewCell {
         
         iconImage.layer.cornerRadius = 40
         iconImage.layer.masksToBounds = true
-        iconImage.backgroundColor = .systemGray6
+        iconImage.backgroundColor = UIColor(white: 1, alpha: 0.58)
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(iconImage)
         NSLayoutConstraint.activate([
@@ -58,19 +60,18 @@ class WorkoutCardCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func fatch(_ data: Workout) {
-        titleLabel.text = data.name
-        
-        rapsLabel.text = "\(data.goalSet[0].weight)kg/\(data.goalSet[0].raps)raps."
-    }
-    
-    func setSelected() {
-        guard let workoutNavigationController = rootNavigationController as? WorkoutNavigationController else {
+    func fatch(_ data: Workout?) {
+        guard let workoutData = data else {
+            // empty
+            titleLabel.text = "새로 만들기"
+            rapsLabel.text = nil
+            
             return
         }
         
-        let workoutPlayerViewController = WorkoutPlayerViewController()
-        workoutNavigationController.pushViewController(workoutPlayerViewController, animated: true)
+        titleLabel.text = workoutData.name
+        
+        rapsLabel.text = "\(workoutData.goalSet[0].weight)kg/\(workoutData.goalSet[0].raps)raps."
     }
     
 }

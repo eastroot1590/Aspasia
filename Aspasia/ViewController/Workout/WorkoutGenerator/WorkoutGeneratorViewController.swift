@@ -11,7 +11,9 @@ class WorkoutGeneratorViewController: UIViewController {
     
     var workout: TemplateWorkout = TemplateWorkout()
     
+    /// 현재 만들어지고 있는 운동을 표시하는 카드
     let templateWorkoutView = TemplateWorkoutView()
+    /// selector가 들어갈 자리
     let selectorContainer = UIView()
     
     var currentSelector: WorkoutSelectorViewController?
@@ -29,7 +31,7 @@ class WorkoutGeneratorViewController: UIViewController {
             selectorContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             selectorContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             selectorContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            selectorContainer.heightAnchor.constraint(equalToConstant: 300)
+            selectorContainer.heightAnchor.constraint(equalToConstant: 250)
         ])
         
         templateWorkoutView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +39,7 @@ class WorkoutGeneratorViewController: UIViewController {
         NSLayoutConstraint.activate([
             templateWorkoutView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             templateWorkoutView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            templateWorkoutView.bottomAnchor.constraint(equalTo: selectorContainer.topAnchor, constant: -10),
+            templateWorkoutView.bottomAnchor.constraint(equalTo: selectorContainer.topAnchor, constant: -20),
             templateWorkoutView.widthAnchor.constraint(equalTo: templateWorkoutView.heightAnchor, multiplier: 0.63)
         ])
     }

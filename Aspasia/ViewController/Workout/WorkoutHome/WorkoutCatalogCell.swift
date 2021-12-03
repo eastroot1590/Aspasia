@@ -46,6 +46,7 @@ class WorkoutCatalogCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10)
         ])
         
+        workoutCollectionView.delaysContentTouches = false
         workoutCollectionView.backgroundColor = .clear
         workoutCollectionView.dataSource = self
         workoutCollectionView.delegate = self

@@ -16,13 +16,11 @@ class WorkoutSelectorViewController: UIViewController {
 
     let titleLabel: UILabel = UILabel()
     
-    private var phase: SelectionPhase
+    private var phase: SelectionPhase = .category
     
     private let categories: [WorkoutCategory] = [.aerobic, .anaerobic]
     
-    init(_ phase: SelectionPhase) {
-        self.phase = phase
-        
+    init() {
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -46,8 +44,8 @@ class WorkoutSelectorViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24)
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24)
         ])
         
         let layout = UICollectionViewFlowLayout()
@@ -57,6 +55,7 @@ class WorkoutSelectorViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.alwaysBounceHorizontal = true
+        collectionView.delaysContentTouches = false
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -64,9 +63,9 @@ class WorkoutSelectorViewController: UIViewController {
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 200)
         ])
         
         // register

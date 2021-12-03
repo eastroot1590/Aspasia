@@ -27,7 +27,7 @@ class WorkoutHomeViewController: UIViewController {
         
         let catalogTable = UITableView(frame: view.frame, style: .plain)
         catalogTable.backgroundColor = .black
-//        catalogTable.separatorStyle = .none
+        catalogTable.delaysContentTouches = false
         catalogTable.rowHeight = UITableView.automaticDimension
         catalogTable.dataSource = self
         catalogTable.delegate = self
